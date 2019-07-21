@@ -1,23 +1,35 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# npm ignore
+npm-debug.log
+node_modules/*
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Sublime Text
+*.sublime-workspace
 
-# testing
-/coverage
+# WebStorm IDE
+.idea/
 
-# production
-/build
+# vim
+*.swp
 
-# misc
+# kdiff3
+*.orig
+
+# OSX
+Thumbs.db
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# IIS logs
+iisnode/
+
+# TernJs
+.tern-port
+
+# CTags
+tags
+
+# Code Coverage
+.nyc_output/
+coverage/
+
+# ignores specific to this repo
+build/dev
