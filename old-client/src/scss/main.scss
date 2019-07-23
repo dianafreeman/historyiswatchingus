@@ -1,0 +1,36 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "variables.scss";
+@import "mixins.scss";
+@import "global.scss";
+@import "navbar.scss";
+@import "footer.scss";
+@import "masthead.scss";
+@import "cards.scss";
+@import "bootstrap-overrides.scss";
+
+body {
+    background: url('../img/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+}
+.clear{clear:both;}
+
+
+form.stateSelect {
+  width: 100%;
+  display: inline-flex;
+}
