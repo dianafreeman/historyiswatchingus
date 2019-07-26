@@ -1,24 +1,32 @@
 /* eslint-disable */
-require('dotenv').config();
+require('dotenv').config() 
 const sass = require('node-sass');
-const webpackConfig = require('./webpack.config');
-
 module.exports = function (grunt) {
     grunt.initConfig({
         eslint: {
             options: {
-                configFile: './.eslintrc.json',
-                fix: true
+              configFile: './.eslintrc.json',
+              fix: true
             },
-            target: ['Gruntfile.js', '*.js', 'server/**/*.js', 'server/**/*.js', 'client/src/**/*.js'],
+            target: ['Gruntfile.js', '*.js', 'src/**/*.js', 'server/**/*.js'],
+      },
+      reload: {
+        port: 3001,
+        proxy: {
+            host: 'localhost'
         },
+        watch:{
+            files:['dist/main.js'],
+            tasks:'default reload'
+        }
+    },
         sass: {
             dist: {
                 options: {
                     style: 'expanded'
                 },
                 files: {
-                    'client/public/main.css': 'src/scss/main.scss' // 'destination': 'source'
+                    'dist/main.css': 'src/scss/main.scss' // 'destination': 'source'
                 }
             }
         },
@@ -26,7 +34,7 @@ module.exports = function (grunt) {
             options: {
                 map: {
                     inline: false, // save all sourcemaps as separate files...
-                    annotation: 'client/public/maps/' // ...to the specified directory
+                    annotation: 'dist/maps/' // ...to the specified directory
                 },
                 processors: [
                     require('pixrem')(), // add fallbacks for rem units
@@ -34,41 +42,46 @@ module.exports = function (grunt) {
                 ]
             },
             dist: {
-                src: 'client/public/main.css'
+                src: 'dist/main.css'
             }
         },
-        webpack: {
+        browserify: {
             options: {
-                stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-            },
-            prod: webpackConfig,
-            dev: Object.assign({
-                watch: true
-            }, webpackConfig)
+                browserifyOptions: {
+                   debug: true
+                },
+                
+             },
+            dist: {
+                files: {
+                    'dist/main.js': ['src/js/App.js'],
+                },
+                options: {
+                    transform: [
+                        ['babelify', {
+                            presets: ["@babel/env", "@babel/react"]
+                        }]
+                    ],
+                }
+            }
         },
-
         watch: {
             scss: {
                 files: ['src/scss/*.scss'],
                 tasks: ['sass'],
-                options: {
-                    reload: true
-                }
             },
             scripts: {
                 files: ['<%= eslint.target %>'],
-                tasks: ['eslint', 'webpack'],
-                options: {
-                    reload: true
-                }
+                tasks: ['eslint', 'browserify'],
             }
         },
-    });
+});
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-postcss');
-    grunt.loadNpmTasks('grunt-webpack');
+    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-eslint');
 
     grunt.registerTask('build', ['eslint', 'browserify', 'sass', 'postcss']);
