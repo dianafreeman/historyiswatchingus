@@ -18,6 +18,7 @@
   },
   "rules": {
     "react/jsx-filename-extension": "off",
-    "react/forbid-prop-types": "off"
+    "react/forbid-prop-types": "off",
+    "linebreak-style": "off"
   }
 }

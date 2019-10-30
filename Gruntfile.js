@@ -8,7 +8,7 @@ module.exports = function (grunt) {
               configFile: './.eslintrc.json',
               fix: true
             },
-            target: ['Gruntfile.js', '*.js', 'src/**/*.js', 'server/**/*.js'],
+            target: ['Gruntfile.js', '*.js', 'server/**/*.js'],
       },
       reload: {
         port: 3001,
@@ -72,7 +72,7 @@ module.exports = function (grunt) {
             },
             scripts: {
                 files: ['<%= eslint.target %>'],
-                tasks: ['eslint', 'browserify'],
+                tasks: ['eslint'],
             }
         },
 });
