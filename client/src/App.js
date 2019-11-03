@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
+import Navbar from './components/Navbar'
+import Masthead from './components/Masthead';
+import Actions from './components/Actions';
+import StateSelect from './components/StateSelect';
+import { colors } from './tailwind.config'
+import './css/index.css';
 
-function App() {
+const AppWrapper = styled.div`
+  ${tw`top-0 h-screen relative`}
+  background-image: linear-gradient( #ffffff, #e8e8e8 );
+  z-index: 0;
+  &:after{ 
+    content: ' ';
+    position: absolute;
+    background-color: ${colors['theme-white']};
+    height: 30vh;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+`;
+
+const Section = styled.div`
+  ${tw`py-2 text-serif`}
+
+  `;
+
+
+class App extends React.Component {
+ 
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <AppWrapper>
+      <Navbar />
+      <Section>
+        <Masthead />
+       <StateSelect />
+        </Section>
+       <Actions />
 
+    </AppWrapper>
+  );
+};
+}
 export default App;
