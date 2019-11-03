@@ -8,11 +8,11 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const Actions = () => {
+const Actions = ({ store }) => {
   return (
     <Wrapper>
      
-      <ExpandingCard label="View your Legislators" > <FaUsers style={{ fontSize: '6em', color: colors['theme-light-gray'], margin: 'auto' }} /></ExpandingCard>
+      <ExpandingCard label="View your Legislators" store={store}> <FaUsers style={{ fontSize: '6em', color: colors['theme-light-gray'], margin: 'auto' }} /></ExpandingCard>
       <ExpandingCard label="Select the Causes that matter to you" />
       <ExpandingCard label="See how your legislators line up" />
      

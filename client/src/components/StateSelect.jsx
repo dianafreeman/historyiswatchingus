@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { observer } from 'mobx-react';
 import { FaMapPin } from 'react-icons/fa';
 import Select from 'react-select';
 import tw from 'tailwind.macro';
@@ -24,49 +25,37 @@ const SelectWrapper = styled.div`
 
 const LocationText = styled.p`
   ${tw`font-bold font-serif text-2xl m-auto`}
-`
+`;
 const stateOptions = Object.entries(US_STATES).map(o => ({
   value: o[0],
   label: o[1],
 }));
 
-// const SelectStyles = {
-//   option: (provided, state) => ({
-//     ...provided,
-//     backgroundColor: state.showSelected
-//       ? colors['theme-dark-red']
-//       : colors['theme-medium-gray'],
-//     color: colors['theme-dark'],
-//     fontFamily: 'Open Sans',
-//     fontWeight: '100',
-//   }),
-//   control: () => ({
-//     // none of react-select's styles are passed to <Control />
-//     width: 200,
-//     borderBottom: '1px solid dark',
-//     display: 'flex',
-//     color: colors['theme-dark'],
-//     fontFamily: 'Open Sans',
-//     fontWeight: '100',
-//   }),
-//   placeholder: () => ({
-//     color: colors['theme-dark'],
-//     fontSize: '1.5em',
-//     fontFamily: 'Open Sans',
-//     fontWeight: '100',
-//   }),
-//   singleValue: () => ({
-//     color: colors['theme-dark'],
-//     fontSize: '1.5em',
-//     fontFamily: 'Open Sans',
-//     fontWeight: '100',
-//   }),
-// };
+const SelectStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.showSelected
+      ? colors['theme-dark-red']
+      : colors['theme-medium-gray'],
+    color: colors['theme-dark'],
+    fontFamily: 'Open Sans',
+    fontWeight: '100',
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px solid dark',
+    color: colors['theme-dark'],
+  }),
+  placeholder: provided => ({
+    ...provided,
+  }),
+  singleValue: provided => ({
+    ...provided,
+  }),
+};
 class StateSelect extends Component {
   state = {
-    location: null,
     showSelect: false,
-    selectIsActive: false,
   };
 
   componentDidMount() {
@@ -75,18 +64,27 @@ class StateSelect extends Component {
   }
 
   onClick = e => {
-    if (!this.selectElRef.current){
-    this.setState(prevState =>( {showSelect: !prevState.showSelect }))
-    } else if (this.selectElRef.current && this.selectElRef.current.state.menuIsOpen){
-      return 
-    } else {
-      this.setState(prevState =>( { showSelect: !prevState.showSelect }))
-    }
+    if (!this.selectElRef.current || 
+      !(this.selectElRef.current &&
+        this.selectElRef.current.state.menuIsOpen)) {
+      this.setState(prevState => ({ showSelect: !prevState.showSelect }));
+    } 
+    return
   };
 
+  onChange = async location => {
+    this.props.store.setLocation(location)
+    this.setState({ showSelect: false });
 
-  onChange = location => {
-    this.setState({ location, showSelect: false });
+    try {
+      const req = await fetch(`reps/${location.value}`)
+      const response = await req.json()
+      this.props.store.setReps(response.reps)
+      // console.log(response.reps)
+    } catch (err) {
+      console.log(`ERROR: ${err}`)
+    }
+    // .finally(console.log(JSON.stringify(this.props.store.representatives)))
   };
   render() {
     return (
@@ -95,26 +93,32 @@ class StateSelect extends Component {
           <FaMapPin
             style={{
               color: 'inherit',
-              fontSize: '2em',
+              fontSize: '3em',
               float: 'left',
               margin: 'auto',
             }}
           />
-         <SelectWrapper >
-          
-            {  this.state.showSelect ? <Select
-                onClick={ () => this.setState({selectIsActive: true})}
+          <SelectWrapper>
+            {this.state.showSelect ? (
+              <Select
+              styles={SelectStyles}
+                onClick={() => this.setState({ selectIsActive: true })}
                 ref={this.selectElRef}
                 placeholder="choose a state...."
                 options={stateOptions}
                 onChange={this.onChange}
-                defaultValue={this.state.location}
-           /> :  this.state.location ? <LocationText>You chose {this.state.location.label}</LocationText> : <LocationText>Choose a state</LocationText> }
-           </SelectWrapper> 
+                defaultValue={this.props.store.location}
+              />
+            ) : this.props.store.location ? (
+              <LocationText>You chose {this.props.store.location.label}</LocationText>
+            ) : (
+              <LocationText>Choose a state</LocationText>
+            )}
+          </SelectWrapper>
         </ActionButton>
       </Content>
     );
   }
 }
 
-export default StateSelect;
+export default observer(StateSelect);

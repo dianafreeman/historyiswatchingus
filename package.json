@@ -5,9 +5,11 @@
   "author": "Diana M. Steakley-Freeman",
   "main": "server/index.js",
   "scripts": {
-    "test:server": "NODE_ENV=testing ./node_modules/.bin/mocha tests/index.js --watch --require @babel/register tests/setup.js",
-    "start": "npx react-scripts start",
+    "start:client": "npm run start --prefix client react-scripts start",
+    "start:server": "npx babel-node server/index.js",
+    "dev": "npx run-p start:server start:client",
     "build": "npx react-scripts build",
+    "test:server": "NODE_ENV=testing ./node_modules/.bin/mocha tests/index.js --watch --require @babel/register tests/setup.js",
     "test:client": "npx react-scripts test --watchAll=false --all --ci --coverage",
     "format": "npx prettier --write 'client/src/components/*.{js,jsx,json}'",
     "eject": "npx react-scripts eject"
@@ -49,6 +51,7 @@
     "mocha": "^6.1.4",
     "node-sass": "^4.8.3",
     "normalize.css": "^8.0.1",
+    "npm-run-all": "^4.1.5",
     "pixrem": "^5.0.0",
     "prettier": "^1.18.2"
   },

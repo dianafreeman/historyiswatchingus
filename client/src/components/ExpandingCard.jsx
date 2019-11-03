@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
+// import { Spring } from 'react-spring/renderprops';
 import { colors } from '../tailwind.config';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
@@ -15,16 +17,10 @@ const CardWrapper = styled.div`
   }
 `;
 
-
 const FixedCard = styled.div`
-  ${tw`bg-theme-light-gray fixed rounded-lg shadow float-right`}
-  left: 1em;
-  top: 1em;
-  right: 1em;
-  bottom: 1em;
+  ${tw`bg-theme-light-gray fixed rounded-lg shadow p-4 m-6`}
   z-index: 88;
 `;
-
 
 const CardClose = styled.button`
   ${tw`bg-theme-dark text-white hover:bg-theme-medium-gray hover:text-theme-dark absolute pin-t pin-r m-3 p-1`}
@@ -47,6 +43,8 @@ const CardBottom = styled.div`
   }
 `;
 
+const AnimatedFixed = animated(FixedCard);
+
 const ExpandingCard = props => {
   const [isOpen, setOpen] = useState(false);
   const [isHover, setHover] = useState(false);
@@ -54,6 +52,10 @@ const ExpandingCard = props => {
   const onMouseEnter = () => setHover(true);
   const onMouseLeave = () => setHover(false);
 
+  const springProps = useSpring({
+    from: { left: 1, bottom: 1, right: isOpen ? -999 : 1, top: isOpen ? -999 : 1 },
+    to: { left: 1, bottom: 1, right: isOpen ? 1 : -999, top: 1 },
+  });
   return (
     <>
       <CardWrapper
@@ -68,12 +70,12 @@ const ExpandingCard = props => {
           <h4>{props.label}</h4>
         </CardBottom>
         {isOpen && (
-          <FixedCard>
+          <AnimatedFixed style={{height: isOpen ? 'unset' : 'inherit', ...springProps}}>
             <FixedCardContent>
               <CardClose onClick={() => setOpen(!isOpen)}>X</CardClose>
               THIS IS A FIXED CARD
             </FixedCardContent>
-          </FixedCard>
+          </AnimatedFixed>
         )}
       </CardWrapper>
     </>

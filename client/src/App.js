@@ -6,7 +6,6 @@ import Masthead from './components/Masthead';
 import Actions from './components/Actions';
 import StateSelect from './components/StateSelect';
 import { colors } from './tailwind.config'
-import './css/index.css';
 
 const AppWrapper = styled.div`
   ${tw`top-0 h-screen relative`}
@@ -29,17 +28,19 @@ const Section = styled.div`
   `;
 
 
+
+  
 class App extends React.Component {
- 
+  
   render(){
   return (
-    <AppWrapper>
+    <AppWrapper >
       <Navbar />
       <Section>
         <Masthead />
-       <StateSelect />
+       <StateSelect store={this.props.store}/>
         </Section>
-       <Actions />
+       <Actions store={this.props.store}/>
 
     </AppWrapper>
   );
