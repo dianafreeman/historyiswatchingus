@@ -4,14 +4,15 @@ import Print from '../util/Print';
 
 
 const get = (req, res) => {
+  if (!req.params.state) return res.status(401).json({ ERROR: 'State parameter is required'})
   const print = new Print({ state: req.params.state });
   const url = print.url.repsFromState();
   fetch(url, FETCH_OPTIONS)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(json => res.status(200).json({
       state: req.params.state,
       timestamp: new Date(),
-      reps: json.response.legislator,
+      reps: json.response.legislator.map(l => l['@attributes']),
     }))
     .catch(err => res.status(400).send(err));
 };
@@ -24,15 +25,11 @@ const sectorsTo = (req, res) => {
     .then(json => res.status(200).json({
       cid: req.params.cid,
       timestamp: new Date(),
-      sectors: json.response.sectors,
+      sectors: json.response.sectors.map(s => s['@attributes']),
     }))
     .catch(err => res.status(400).send(err));
 };
 
-
-// const contribsFrom = (industryCode) => {
-//   INDUSTRIES.find( ind => ind.industryCode);
-// };
 
 const RepRoute = { get, sectorsTo };
 

@@ -5,11 +5,13 @@
   "author": "Diana M. Steakley-Freeman",
   "main": "server/index.js",
   "scripts": {
-    "test": "NODE_ENV=testing mocha --watch --require @babel/register",
-    "start": "npx @babel/node --require @babel/register server/index.js",
-    "watch:server": "nodemon --exec babel-node server/index.js",
-    "format": "prettier setting needed!",
-    "dev": "grunt"
+    "test:server": "NODE_ENV=testing ./node_modules/.bin/mocha tests/index.js --watch --require @babel/register tests/setup.js",
+    "start:server": "npx babel-node server/index.js",
+    "start": "npx react-scripts start",
+    "build": "npx react-scripts build",
+    "test:client": "npx react-scripts test --watchAll=false --all --ci --coverage",
+    "format": "npx prettier --write 'client/src/components/*.{js,jsx,json}'",
+    "eject": "npx react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -20,11 +22,12 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.6.4",
     "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.5.0",
+    "babel-node": "0.0.1-security",
     "babelify": "^10.0.0",
     "bootstrap": "^4.3.1",
     "chai": "^4.2.0",
