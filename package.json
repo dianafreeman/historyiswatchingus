@@ -5,11 +5,12 @@
   "author": "Diana M. Steakley-Freeman",
   "main": "server/index.js",
   "scripts": {
-    "test": "NODE_ENV=testing ./node_modules/.bin/mocha tests/index.js --watch --require @babel/register tests/setup.js",
-    "start": "npx @babel/node --require @babel/register server/index.js",
-    "watch:server": "nodemon --exec babel-node server/index.js",
-    "format": "prettier setting needed!",
-    "dev": "grunt"
+    "test:server": "NODE_ENV=testing ./node_modules/.bin/mocha tests/index.js --watch --require @babel/register tests/setup.js",
+    "start": "npx react-scripts start",
+    "build": "npx react-scripts build",
+    "test:client": "npx react-scripts test --watchAll=false --all --ci --coverage",
+    "format": "npx prettier --write 'client/src/components/*.{js,jsx,json}'",
+    "eject": "npx react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -34,13 +35,6 @@
     "css-loader": "^2.1.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-react-app": "^4.0.1",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-react-hooks": "^1.6.0",
     "grunt": "^1.0.4",
     "grunt-babel": "^8.0.0",
     "grunt-browserify": "^5.3.0",
@@ -52,6 +46,7 @@
     "grunt-sass": "^3.0.2",
     "mocha": "^6.1.4",
     "node-sass": "^4.8.3",
+    "normalize.css": "^8.0.1",
     "pixrem": "^5.0.0",
     "prettier": "1.18.2"
   },
@@ -65,6 +60,9 @@
     "open": "^6.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-select": "^3.0.8",
+    "typeface-open-sans": "0.0.75",
+    "typeface-prata": "0.0.72"
   }
 }
