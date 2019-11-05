@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { colors } from '../tailwind.config'
+import { colors } from '../../tailwind.config'
 
 
 const NavWrapper = styled.nav`

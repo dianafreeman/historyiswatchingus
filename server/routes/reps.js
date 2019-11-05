@@ -21,11 +21,11 @@ const sectorsTo = (req, res) => {
   const print = new Print({ cid: req.params.cid });
   const url = print.url.sectorsToCandidate();
   fetch(url, FETCH_OPTIONS)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(json => res.status(200).json({
       cid: req.params.cid,
       timestamp: new Date(),
-      sectors: json.response.sectors.map(s => s['@attributes']),
+      sectors: json.response.sectors,
     }))
     .catch(err => res.status(400).send(err));
 };

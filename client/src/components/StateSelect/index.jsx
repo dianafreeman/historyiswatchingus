@@ -4,8 +4,8 @@ import { observer } from 'mobx-react';
 import { FaMapPin } from 'react-icons/fa';
 import Select from 'react-select';
 import tw from 'tailwind.macro';
-import { US_STATES } from '../constants';
-import { colors } from '../tailwind.config';
+import { US_STATES } from '../../constants';
+import { colors } from '../../tailwind.config';
 
 const Content = styled.div`
   ${tw`px-2 my-3 mx-5`}
