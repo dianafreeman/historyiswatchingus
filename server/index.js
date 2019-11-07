@@ -8,8 +8,8 @@ app.use('/reps/:state', RepRoutes.get);
 app.use('/rep/:cid', RepRoutes.sectorsTo);
 
 
-app.listen(process.env.PORT, () => {
-  console.log(`Started on port ${process.env.PORT}`);
+app.listen(process.env.SERVER_PORT, () => {
+  console.log(`Started App Server on port ${process.env.SERVER_PORT}`);
 });
 
 export default app;
