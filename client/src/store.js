@@ -28,6 +28,11 @@ class Store {
       return (this.representatives = reps)
   }
 
+  setSectorsForReps(reps){
+    let cids = reps.map(r => r.CID);
+  
+  }
+
   setCauses(arrayOfCauses) {
     return (this.causes = arrayOfCauses.map(c => ({
       isSelected: false,

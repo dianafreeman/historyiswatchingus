@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaYoutube, FaGlobe } from 'react-icons/fa';
 import { colors } from '../../tailwind.config';
 
 const Wrapper = styled.div`
-  ${tw`flex justify-between w-3/4`}
+  ${tw`flex justify-between px-6 py-2 mt-3`}
 `;
 
 const IconWrap = styled.a`
@@ -27,22 +27,29 @@ youtube_url
 facebook_id
   
   */
-const SocialBar = (props) => {
+const SocialBar = props => {
   return (
     <Wrapper>
-     {props.facebook_id && <IconWrap href="#" target="_blank" rel="noopener">
-        <FaFacebookF />
-      </IconWrap>}
-      {props.twitter_id && <IconWrap href="#" target="_blank" rel="noopener">
-        <FaTwitter />
-      </IconWrap>}
-      {props.youtube_url && <IconWrap href="#" target="_blank" rel="noopener">
-        <FaYoutube />
-      </IconWrap>}
-      {props.website && <IconWrap href="#" target="_blank" rel="noopener">
-        <FaGlobe />
-      </IconWrap>}
-      
+      {props.facebook_id && (
+        <IconWrap href="#" target="_blank" rel="noopener">
+          <FaFacebookF />
+        </IconWrap> 
+      )}
+      {props.twitter_id && (
+        <IconWrap href="#" target="_blank" rel="noopener">
+          <FaTwitter />
+        </IconWrap>
+      )}
+      {props.youtube_url && (
+        <IconWrap href="#" target="_blank" rel="noopener">
+          <FaYoutube />
+        </IconWrap>
+      )}
+      {props.website && (
+        <IconWrap href="#" target="_blank" rel="noopener">
+          <FaGlobe />
+        </IconWrap>
+      )}
     </Wrapper>
   );
 };

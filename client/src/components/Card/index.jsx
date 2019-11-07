@@ -3,7 +3,7 @@ import tw from 'tailwind.macro';
 import { colors } from '../../tailwind.config'
 
 export const CardWrapper = styled.div`
-${tw`bg-theme-white p-4 font-sans hover:bg-theme-light-gray hover:shadow-lg rounded-lg m-5 relative text-center`}
+${tw`bg-theme-white font-sans hover:bg-theme-light-gray hover:shadow-lg rounded-lg m-5 relative text-center`}
 svg {
   color: ${props =>
     props.isHovered
@@ -12,17 +12,13 @@ svg {
 }
 `;
 
-export const FixedCard = styled.div`
-${tw`bg-theme-light-gray fixed rounded-lg shadow p-4 m-6`}
+export const FixedCardContainer = styled.div`
+${tw`bg-theme-light-gray fixed rounded-lg shadow`}
 z-index: 88;
 `;
 
-export const CardClose = styled.button`
-${tw`bg-theme-dark text-white hover:bg-theme-medium-gray hover:text-theme-dark absolute pin-t pin-r m-3 p-1`}
-`;
-
 export const FixedCardContent = styled.div`
-${tw`p-6 relative`}
+${tw`relative`}
 height: calc(100% - 2em);
 width: inherit;
 opacity: ${props => (props.isOpen ? 1 : 0)};
@@ -42,3 +38,8 @@ h4 {
 export const CardBody = styled.div`
 ${tw`h-400 w-full relative`}
 `
+
+
+export const CardClose = styled.button`
+${tw`bg-theme-dark text-white hover:bg-theme-medium-gray hover:text-theme-dark absolute pin-t pin-r m-3 p-1`}
+`;

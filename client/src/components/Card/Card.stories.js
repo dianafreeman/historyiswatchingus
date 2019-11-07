@@ -1,21 +1,28 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import {
-  CardWrapper,
-  CardTop,
-  CardBottom
-} from '../styled';
+import { CardWrapper, CardTop, CardBottom } from './index';
 
+const CardDecorator = storyFn => <div style={{textAlign: 'center'}}>{storyFn()}</div>;
 
-storiesOf('Card', module).add('default', () => {
-  return (
-      <>
-    <CardWrapper>
-      <CardTop>Children</CardTop>
-      <CardBottom>
-        <h4>Label</h4>
-      </CardBottom>
-    </CardWrapper>
-    </>
-  );
-});
+export default {
+  title: 'Card',
+  decorators: [CardDecorator],
+  includeStories: ['onMount', 'onDestroy'],
+};
+
+export const onMount = () => (
+  <CardWrapper>
+    <CardTop>Children</CardTop>
+    <CardBottom>
+      <h4>Label</h4>
+    </CardBottom>
+  </CardWrapper>
+);
+
+export const onDestroy = () => (
+  <CardWrapper>
+    <CardTop>Children</CardTop>
+    <CardBottom>
+      <h4>Label</h4>
+    </CardBottom>
+  </CardWrapper>
+);

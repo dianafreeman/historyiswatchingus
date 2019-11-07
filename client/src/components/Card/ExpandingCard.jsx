@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { CardWrapper, CardTop, CardBottom, FixedCard, FixedCardContent, CardClose } from './index'
+import { CardWrapper, CardTop, CardBottom, FixedCardContainer, FixedCardContent, CardClose } from '.'
 import { Spring } from 'react-spring/renderprops';
+import { Subtitle, MiniTitle } from '../Text'
+import tw from 'tailwind.macro'
+import RESPONSE from '../../stub/locationRepsonse'
 import styled from 'styled-components'
-
+import Profile from '../Profile'
 const ShakeCardWrapper = styled(CardWrapper)`
+width: 33%;
 ${props => props.isShaking && `
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 1s;
@@ -26,7 +30,7 @@ ${props => props.isShaking && `
 `
 class ExpandingCard extends Component {
   state = {
-    isOpen: false,
+    isOpen: true,
     isHovered: false,
     isShaking: false,
     rect: null,
@@ -37,15 +41,17 @@ class ExpandingCard extends Component {
     this.fixedElRef = React.createRef();
   }
 
-  onClick = () => {
-    if(this.props.store.location) { 
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-    } else {
-      this.setShake();
-      setTimeout(() => {
-        this.setShake()
-      }, 500)
-    }
+  onClick = (e) => {
+    console.log(e.target.parentElement)
+    // console.log(Object.keys(e.target))
+    // if(this.props.store.location) { 
+    // this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+    // } else {
+    //   this.setShake();
+    //   setTimeout(() => {
+    //     this.setShake()
+    //   }, 500)
+    // }
   }
 
   setShake = () => this.setState(prevState => ({ isShaking: !prevState.isShaking }) );
@@ -67,7 +73,7 @@ class ExpandingCard extends Component {
         >
           <CardTop>{this.props.children}</CardTop>
           <CardBottom>
-            <h4>{this.props.label}</h4>
+            <MiniTitle style={{textAlign: 'center'}}>{this.props.label}</MiniTitle>
           </CardBottom>
           <Spring
             from={{
@@ -85,14 +91,16 @@ class ExpandingCard extends Component {
             }}
           >
             {props => (
-              <FixedCard
+              <FixedCardContainer
                 ref={this.fixedElRef}
                 style={{ height: isOpen ? 'unset' : 'inherit', ...props }}
               >
                 <FixedCardContent isOpen={isOpen}>
                   <CardClose>X</CardClose>
+                  <div style={tw`flex flex-wrap`} >
+                  {RESPONSE.reps.map(rep => <Profile key={rep.CID} BIO={rep}/>)}</div>
                 </FixedCardContent>
-              </FixedCard>
+              </FixedCardContainer>
             )}
           </Spring>
         </ShakeCardWrapper>

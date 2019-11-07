@@ -6,10 +6,9 @@ import {
   CardBody,
   CardTop,
   CardBottom,
-  MiniTitle,
-} from '../styled';
-import SocialBar from './SocialBar';
-import { useSpring, animated } from 'react-spring';
+} from '../Card';
+import { Subtitle } from '../Text'
+import SocialBar from '../SocialBar';
 import { colors } from '../../tailwind.config';
 /*
 
@@ -20,8 +19,8 @@ SECTOR {"cid":"N00006134","timestamp":"2019-11-05T02:26:44.172Z","sectors":{"@at
 
 */
 
-const PartyIndicator = styled.span`
-  ${tw`rounded-full float-right inline-flex px-2 py-1 border-solid`}
+const PartyIndicator = styled.h4`
+  ${tw`rounded-full float-right inline-flex px-2 py-1 m-2 font-bold border-1 border-solid md:text-2lg lg:text-3xl`}
   background-color: ${props =>
     props.party === 'D'
       ? colors['blue-light']
@@ -32,7 +31,8 @@ const PartyIndicator = styled.span`
 `;
 
 const ProfilePhoto = styled.img`
-  ${tw`rounded-full h-auto w-1/4 `}
+  ${tw`rounded-full h-auto w-1/3 `}
+  max-width: 130px;
 `;
 
 const ProfileTop = styled(CardTop)`
@@ -47,13 +47,15 @@ const ProfileCard = props => {
     <CardWrapper>
       <ProfileWrapper>
         <ProfileTop>
-          <MiniTitle style={tw`float-left m-0`}>{BIO.firstlast}</MiniTitle>
+          <Subtitle style={tw`float-left m-0`}>{BIO.firstlast}</Subtitle>
           <PartyIndicator party={BIO.party}> {BIO.party}</PartyIndicator>
         </ProfileTop>
-        <CardBottom>
+        <CardBody style={{textAlign: 'left', margin: '1em'}}>
           <ProfilePhoto
             src={`https://theunitedstates.io/images/congress/225x275/${BIO.bioguide_id}.jpg`}
-          />
+            />
+            </CardBody>
+            <CardBottom>
           <SocialBar
             facebook_id={BIO.facebook_id}
             twitter_id={BIO.twitter_id}
