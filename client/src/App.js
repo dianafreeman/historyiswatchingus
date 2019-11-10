@@ -14,7 +14,7 @@ const AppWrapper = styled.div`
   &:after{ 
     content: ' ';
     position: absolute;
-    background-color: ${colors['theme-white']};
+    background-color: ${colors['brand-white']};
     height: 30vh;
     bottom: 0;
     width: 100%;

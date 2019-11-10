@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ExpandingCard from './Card/ExpandingCard';
+import Card from './Card/';
 import tw from 'tailwind.macro';
 import { colors } from '../tailwind.config';
 import { FaUsers } from 'react-icons/fa';
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Actions = ({ store }) => {
   return (
     <Wrapper>
-      <ExpandingCard
+      <Card
         label="View your Legislators"
         store={store}
       >
@@ -20,13 +20,13 @@ const Actions = ({ store }) => {
         <FaUsers
           style={{
             fontSize: '6em',
-            color: colors['theme-light-gray'],
+            color: colors['brand-light-gray'],
             margin: 'auto',
           }}
         />
-      </ExpandingCard>
-      {/* <ExpandingCard label="Select the Causes that matter to you" />
-      <ExpandingCard label="See how your legislators line up" /> */}
+      </Card>
+      {/* <Card label="Select the Causes that matter to you" />
+      <Card label="See how your legislators line up" /> */}
     </Wrapper>
   );
 };

@@ -3,5 +3,5 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 
 export const DividingLine = styled.hr`
-  ${tw`border-bottom border-1 border-solid border-theme-white`}
+  ${tw`border-bottom border-1 border-solid border-brand-white`}
 `

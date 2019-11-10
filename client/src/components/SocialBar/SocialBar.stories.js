@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { CardWrapper } from '../Card'
 
 import SocialBar from '.';
 
@@ -12,4 +11,4 @@ const props = {
 };
 
 export default  { title: 'Social Bar' };
-export const normal = () => <CardWrapper> <SocialBar  {...props}/> </CardWrapper>
+export const normal = () =>  <SocialBar  {...props}/>

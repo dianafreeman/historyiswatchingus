@@ -19,102 +19,56 @@ Tailwind - The Utility-First CSS Framework
 */
 
 let colors = {
-  //Theme Colors
+  //Brand Colors
 
-  'theme-success': '#65BA62',
-  'theme-light-gray': '#E1E1E2',
-  'theme-dark': '#18164E',
-  'theme-medium-gray': '#0707070',
-  'theme-red': '#CD5E4F',
-  'theme-deep-red': '#8D0F00',
-  'theme-orange': '#C8845E', 
-  'theme-blue': '#67AAD2',
-  'theme-white': '#F8FAF9',
+  'brand-success': '#65BA62',
+  'brand-light-gray': '#E1E1E2',
+  'brand-dark': '#18164E',
+  'brand-medium-gray': '#0707070',
+  'brand-red': '#CD5E4F',
+  'brand-deep-red': '#8D0F00',
+  'brand-orange': '#C8845E',
+  'brand-blue': '#67AAD2',
+  'brand-white': '#F8FAF9',
+
+  // Theme Colors
+  turquoise: '#1ABC9C',
+  'turquoise-dark': '#16A085',
+
+  green: '#2ECC71',
+  'green-dark': '#27AE60',
+
+  blue: '#3498DB',
+  'blue-dark': '#2980B9',
+
+
+  purple: '#9B59B6',
+  'purple-dark': '#8E44AD',
+
+  'deep-blue': '#34495E',
+  'deep-midnight': '#2C3E50',
+
+  yellow: '#F1C40F',
+  'yellow-dark': '#F39C12',
+
+  orange: '#E67E22',
+  'orange-dark': '#D35400',
+
+  red: '#E74C3C',
+  'red-dark': '#C0392B',
 
   //End Theme Colors
   transparent: 'transparent',
 
   black: '#22292f',
-  'grey-darkest': '#3d4852',
-  'grey-darker': '#606f7b',
+  'grey-darkest': '#7F8C8D',
+  'grey-darker': '#95A5A6',
   'grey-dark': '#8795a1',
-  grey: '#b8c2cc',
+  grey: '#BDC3C7',
   'grey-light': '#dae1e7',
   'grey-lighter': '#f1f5f8',
-  'grey-lightest': '#f8fafc',
+  'grey-lightest': '#ECF0F1',
   white: '#ffffff',
-
-  'red-darkest': '#3b0d0c',
-  'red-darker': '#621b18',
-  'red-dark': '#cc1f1a',
-  red: '#e3342f',
-  'red-light': '#ef5753',
-  'red-lighter': '#f9acaa',
-  'red-lightest': '#fcebea',
-
-  'orange-darkest': '#462a16',
-  'orange-darker': '#613b1f',
-  'orange-dark': '#de751f',
-  orange: '#f6993f',
-  'orange-light': '#faad63',
-  'orange-lighter': '#fcd9b6',
-  'orange-lightest': '#fff5eb',
-
-  'yellow-darkest': '#453411',
-  'yellow-darker': '#684f1d',
-  'yellow-dark': '#f2d024',
-  yellow: '#ffed4a',
-  'yellow-light': '#fff382',
-  'yellow-lighter': '#fff9c2',
-  'yellow-lightest': '#fcfbeb',
-
-  'green-darkest': '#0f2f21',
-  'green-darker': '#1a4731',
-  'green-dark': '#1f9d55',
-  green: '#38c172',
-  'green-light': '#51d88a',
-  'green-lighter': '#a2f5bf',
-  'green-lightest': '#e3fcec',
-
-  'teal-darkest': '#0d3331',
-  'teal-darker': '#20504f',
-  'teal-dark': '#38a89d',
-  teal: '#4dc0b5',
-  'teal-light': '#64d5ca',
-  'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#e8fffe',
-
-  'blue-darkest': '#12283a',
-  'blue-darker': '#1c3d5a',
-  'blue-dark': '#2779bd',
-  blue: '#3490dc',
-  'blue-light': '#6cb2eb',
-  'blue-lighter': '#bcdefa',
-  'blue-lightest': '#eff8ff',
-
-  'indigo-darkest': '#191e38',
-  'indigo-darker': '#2f365f',
-  'indigo-dark': '#5661b3',
-  indigo: '#6574cd',
-  'indigo-light': '#7886d7',
-  'indigo-lighter': '#b2b7ff',
-  'indigo-lightest': '#e6e8ff',
-
-  'purple-darkest': '#21183c',
-  'purple-darker': '#382b5f',
-  'purple-dark': '#794acf',
-  purple: '#9561e2',
-  'purple-light': '#a779e9',
-  'purple-lighter': '#d6bbfc',
-  'purple-lightest': '#f3ebff',
-
-  'pink-darkest': '#451225',
-  'pink-darker': '#6f213f',
-  'pink-dark': '#eb5286',
-  pink: '#f66d9b',
-  'pink-light': '#fa7ea8',
-  'pink-lighter': '#ffbbca',
-  'pink-lightest': '#ffebef',
 };
 
 module.exports = {
@@ -193,7 +147,6 @@ module.exports = {
       'Helvetica Neue',
       'sans-serif',
       'Open Sans',
-
     ],
     serif: [
       'Constantia',
@@ -207,7 +160,6 @@ module.exports = {
       'Georgia',
       'serif',
       'Prata',
-
     ],
     mono: [
       'Menlo',
@@ -217,7 +169,6 @@ module.exports = {
       'Courier New',
       'monospace',
     ],
- 
   },
 
   /*
