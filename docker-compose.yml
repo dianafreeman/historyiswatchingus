@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: historyiswatching_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3002:3002'
+    environment:
+      - NODE_ENV=development
+  
+  client:
+    container_name: historyiswatching_client
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './client:/app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    depends_on: 
+      - web
+    environment:
+      - NODE_ENV=development
