@@ -26,5 +26,7 @@ services:
       - '3000:3000'
     depends_on: 
       - web
+    links: 
+      - web
     environment:
       - NODE_ENV=development
