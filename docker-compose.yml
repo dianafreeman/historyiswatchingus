@@ -19,6 +19,8 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
+      target: client-dev
+
     volumes:
       - './client:/app'
       - '/app/node_modules'
@@ -28,5 +30,19 @@ services:
       - web
     links: 
       - web
+    environment:
+      - NODE_ENV=development
+
+  storybook:
+    container_name: historyiswatching_storybook
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: client-storybook
+    volumes:
+      - './client:/app'
+      - '/app/node_modules'
+    ports:
+      - '9009:9009'
     environment:
       - NODE_ENV=development
