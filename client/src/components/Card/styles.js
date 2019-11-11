@@ -4,6 +4,7 @@ import tw from 'tailwind.macro';
 
 export const CardWrapper = styled.div`
   ${tw`relative flex border border-solid border-brand-light-gray rounded-lg m-2 p-2 md:w-1/2 lg:w-1/3`}
+  min-width: 200px;
   background-color: ${props =>
     props.isHovered
       ? colors['brand-light-gray']

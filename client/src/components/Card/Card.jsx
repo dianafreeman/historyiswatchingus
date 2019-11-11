@@ -16,13 +16,16 @@ class Card extends Component {
     isShaking: false,
   };
 
-  onClick = () =>
+  onClick = (e) =>{
     !!this.props.store.location
       ? this.setState(prevState => ({ isOpen: !prevState.isOpen }))
       : this.toggleShake();
-
+  
+      (this.props.onClick && this.props.onClick(e))
+    }
   toggleShake = (bool = true) =>
     this.setState({ isShaking: bool }, () => this.timeoutShake());
+    
   timeoutShake = (ms = 500) => setTimeout(() => this.toggleShake(false), ms);
 
   onMouseEnter = () => this.setState({ isHovered: true });
@@ -38,6 +41,7 @@ class Card extends Component {
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
           isHovered={this.state.isHovered}
+          style={this.props.wrapperStyles ? this.props.wrapperStyles : {} }
         >
           <CardContent>
             <CardTop>{this.props.cardTop}</CardTop>
