@@ -1,10 +1,12 @@
 FROM node:10-alpine
 
-WORKDIR /usr/src/app/client
+WORKDIR /app
 
-COPY package*.json ./
+ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install --quiet
+COPY package*.json /app/
+
+RUN npm install 
 
 COPY . .
 

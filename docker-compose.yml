@@ -1,12 +1,30 @@
-version: '2'
+version: '3.7'
+
 services:
   web:
-    build: .
-    command: nodemon run start:server
+    container_name: historyiswatching_web
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
+      - '.:/app'
+      - '/app/node_modules'
     ports:
-      - "8080:8080"
+      - '3002:3002'
     environment:
-     OPEN_SECRETS_KEY: 88d1aa9112f23c0bdf6a3fddaef2ccdf
+      - NODE_ENV=development
+  
+  client:
+    container_name: historyiswatching_client
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './client:/app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    depends_on: 
+      - web
+    environment:
+      - NODE_ENV=development

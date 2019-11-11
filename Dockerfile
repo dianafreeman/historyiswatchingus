@@ -1,14 +1,15 @@
 FROM node:10-alpine
 
-RUN mkdir -p /usr/src/app/
+WORKDIR /app
 
-WORKDIR /usr/src/app/
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package*.json /app/
+
+RUN npm install 
+
 COPY . .
 
-RUN npm install -g nodemon --quiet
+EXPOSE 3002
 
-RUN npm install --quiet
-
-EXPOSE 8080
-
-CMD ["npm", "run", "start:server"]
+CMD ["npm", "run", "dev:server"]
