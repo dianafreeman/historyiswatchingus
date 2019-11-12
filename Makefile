@@ -1,17 +1,22 @@
 
 # Developer Actions
 # ------------------------------------------------------------------------------
-.PHONY: build
+.PHONY: install
 install: 
 	@docker-compose build
 
 .PHONY: dev-env
-dev-env: build
-	@docker-compose up
+dev-env: install
+	@docker-compose up --build
 
-.PHONY: dev-storybook
-	@docker-compose run --rm client 
+.PHONY: storybook
+storybook: 
+	@docker-compose up --build storybook
 
 .PHONY: bash-client
-bash-client: build
+bash-client: 
 	@docker-compose run --rm client bash
+
+.PHONY: bash-web
+bash-client: 
+	@docker-compose run --rm web bash
