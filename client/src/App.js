@@ -15,7 +15,7 @@ const AppWrapper = styled.div`
     content: ' ';
     position: absolute;
     background-color: ${colors['brand-white']};
-    height: 30vh;
+    height: 10vh;
     bottom: 0;
     width: 100%;
     z-index: -1;
@@ -23,7 +23,9 @@ const AppWrapper = styled.div`
 `;
 
 const Section = styled.div`
-  ${tw`py-2 text-serif`}
+  ${tw`my-4 text-serif w-screen absolute`}
+  height: 50%;
+  padding: 25px 0;
 `;
 
 class App extends React.Component {
@@ -31,11 +33,17 @@ class App extends React.Component {
     return (
       <AppWrapper>
         <Navbar />
-        <Section>
+        <Section style={{ top: '0' }}>
           <Masthead />
           <StateSelect store={this.props.store} />
         </Section>
-        <Section style={tw`absolute pin-b`}>
+        <Section
+          style={{
+            bottom: '0',
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
           <Actions store={this.props.store} />
         </Section>
       </AppWrapper>
