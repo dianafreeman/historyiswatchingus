@@ -23,7 +23,7 @@ const ProfilePhoto = styled.img`
 `;
 
 
-const ProfileCard = props => {
+const Profile = props => {
   const { BIO } = props;
   return (
     <Card
@@ -50,4 +50,4 @@ const ProfileCard = props => {
   );
 };
 
-export default ProfileCard;
+export default Profile;

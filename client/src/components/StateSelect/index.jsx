@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { FaMapPin } from 'react-icons/fa';
 import Select from 'react-select';
 import { US_STATES } from '../../constants';
 import { colors } from '../../tailwind.config';
@@ -62,7 +61,9 @@ class StateSelect extends Component {
     placeholder: (provided, state) => ({
       ...provided,
       fontFamily: 'Prata',
+      fontWeight: '700',
       textAlign: 'left',
+      fontSize: '1.5em',
       color: colors['brand-dark-red'],
     }),
     singleValue: (provided, state) => ({
@@ -77,13 +78,13 @@ class StateSelect extends Component {
     indicatorsContainer: (provided, state) => ({
       ...provided,
       fontFamily: 'Prata',
+      fontSize: '1.5em',
       color: state.showSelect
         ? colors['brand-dark-red']
         : colors['brand-dark-gray'],
     }),
     indicator: (provided, state) => ({
       ...provided,
-      fontFamily: 'Prata',
       display: 'inline-flex',
       color: state.showSelect ? colors['brand-dark-red'] : colors['black'],
     }),
@@ -119,7 +120,7 @@ class StateSelect extends Component {
           ref={this.buttonELRef}
           onClick={this.onClick}
         >
-          <ButtonIcon src={ this.props.store.location ? CompassIcon : CompassGrayIcon } style={{width: '10vw'}}/>
+          <ButtonIcon src={ this.props.store.location ? CompassIcon : CompassGrayIcon } style={{width: '3em'}}/>
       
           <SelectWrapper>
             {this.state.showSelect ? (
@@ -127,14 +128,14 @@ class StateSelect extends Component {
                 {...this.props.selectProps}
                 styles={this.selectStyles}
                 ref={this.selectElRef}
-                placeholder={<LocationText>Choose a state....</LocationText>}
+                placeholder={"Choose a state..."}
                 options={stateOptions}
                 onChange={this.onChange}
                 defaultValue={this.props.store.location}
               />
             ) : this.props.store.location ? (
               <LocationText>
-                You chose {this.props.store.location.label}
+                You chose <span style={{fontWeight: '900'}}>{this.props.store.location.label}</span>
               </LocationText>
             ) : (
               <LocationText>Choose a state</LocationText>

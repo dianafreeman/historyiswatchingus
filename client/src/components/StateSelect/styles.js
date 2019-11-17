@@ -3,7 +3,8 @@ import tw from 'tailwind.macro';
 import { colors, screens } from '../../tailwind.config';
 
 export const Content = styled.div`
-  ${tw`px-2 my-3 mx-5`}
+  ${tw`px-2 my-3 mx-5 relative`}
+  z-index: 1;
 `;
 
 export const ActionButton = styled.button`
@@ -15,7 +16,7 @@ export const SelectWrapper = styled.div`
 `;
 
 export const LocationText = styled.p`
-  ${tw`font-bold font-serif m-auto`}
+  ${tw`font-serif m-auto`}
   font-size: 24px;
   @media screen and (min-width: ${screens.md}){
     font-size: calc(16px + 1vw);

@@ -1,24 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from './Card/';
+import ActionCard from './Card/ActionCard';
 import tw from 'tailwind.macro';
 import SpringWrapper from './SpringWrapper';
 import { colors } from '../tailwind.config';
 import { FaUsers } from 'react-icons/fa';
-import { MiniTitle } from './Text';
+import { p } from './Text';
 
 const Wrapper = styled.div`
-  ${tw`w-full flex`}
+  ${tw`w-full flex flex-wrap`}
+  height: inherit;
 `;
 
 const Actions = ({ store }) => {
   return (
-    <Wrapper>
-      <Card
+    <>
+      <ActionCard
         cardBottom={
-          <MiniTitle style={tw`text-2xl m-auto text-center`}>
+          <p style={tw`text-2xl m-auto text-center`}>
             View your Legislators
-          </MiniTitle>
+          </p>
         }
         store={store}
         wrapperStyles={{ textAlign: 'center' }}
@@ -31,17 +32,17 @@ const Actions = ({ store }) => {
             margin: 'auto',
           }}
         />
-      </Card>
-      <Card
+      </ActionCard>
+      <ActionCard
         cardBottom={
-          <MiniTitle style={tw`text-2xl m-auto text-center`}>
+          <p style={tw`text-2xl m-auto text-center`}>
             Choose the causes you care about
-          </MiniTitle>
+          </p>
         }
         store={store}
         wrapperStyles={{ textAlign: 'center' }}
       />
-    </Wrapper>
+    </>
   );
 };
 
