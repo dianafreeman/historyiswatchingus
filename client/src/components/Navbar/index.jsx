@@ -6,8 +6,8 @@ import { colors } from '../../tailwind.config'
 
 const NavWrapper = styled.nav`
   ${tw`w-full flex relative font-sans py-5`}
-  background-color: ${props => props.isActive ? colors['theme-deep-red'] : colors['theme-medium-gray']}
-  color: ${props => props.isActive ? colors['theme-white'] : colors['theme-light-gray']}
+  background-color: ${props => props.isActive ? colors['brand-deep-red'] : colors['brand-medium-gray']}
+  color: ${props => props.isActive ? colors['brand-white'] : colors['brand-light-gray']}
 `;
 
 const NavBrand = styled.div`

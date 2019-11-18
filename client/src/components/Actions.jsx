@@ -1,33 +1,48 @@
 import React from 'react';
 import styled from 'styled-components';
-import ExpandingCard from './Card/ExpandingCard';
+import ActionCard from './Card/ActionCard';
 import tw from 'tailwind.macro';
+import SpringWrapper from './SpringWrapper';
 import { colors } from '../tailwind.config';
 import { FaUsers } from 'react-icons/fa';
+import { p } from './Text';
 
 const Wrapper = styled.div`
-  ${tw`flex`}
+  ${tw`w-full flex flex-wrap`}
+  height: inherit;
 `;
 
 const Actions = ({ store }) => {
   return (
-    <Wrapper>
-      <ExpandingCard
-        label="View your Legislators"
+    <>
+      <ActionCard
+        cardBottom={
+          <p style={tw`text-2xl m-auto text-center`}>
+            View your Legislators
+          </p>
+        }
         store={store}
+        wrapperStyles={{ textAlign: 'center' }}
       >
         {' '}
         <FaUsers
           style={{
             fontSize: '6em',
-            color: colors['theme-light-gray'],
+            color: colors['brand-light-gray'],
             margin: 'auto',
           }}
         />
-      </ExpandingCard>
-      {/* <ExpandingCard label="Select the Causes that matter to you" />
-      <ExpandingCard label="See how your legislators line up" /> */}
-    </Wrapper>
+      </ActionCard>
+      <ActionCard
+        cardBottom={
+          <p style={tw`text-2xl m-auto text-center`}>
+            Choose the causes you care about
+          </p>
+        }
+        store={store}
+        wrapperStyles={{ textAlign: 'center' }}
+      />
+    </>
   );
 };
 

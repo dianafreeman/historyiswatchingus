@@ -1,19 +1,25 @@
 import React from 'react';
-import { animated } from 'react-spring';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { FaFacebookF, FaTwitter, FaYoutube, FaGlobe } from 'react-icons/fa';
 import { colors } from '../../tailwind.config';
+import { BIO } from '../../stub/repBio';
 
 const Wrapper = styled.div`
   ${tw`flex justify-between px-6 py-2 mt-3`}
 `;
 
 const IconWrap = styled.a`
-  ${tw`rounded-full mx-1 relative inline-flex text-theme-dark px-1 w-200 h-200 border bg-solid border-solid text-theme-dark border-theme-dark`}
+  ${tw`rounded-full mx-1 flex text-brand-dark px-1 border border-solid text-brand-dark border-brand-dark`}
+  &:hover, &:active, &:focus {
+    background: ${colors['brand-dark']};
+    svg {
+      fill: white;
+    }
+  }
   svg { 
-      ${tw`px-2 py-3 inline-flex`}
-      fill: ${colors['theme-dark']} 
+      ${tw`mx-2 my-3`}
+      fill: ${colors['brand-dark']} 
   }
   `;
 
@@ -28,25 +34,42 @@ facebook_id
   
   */
 const SocialBar = props => {
+  const { facebook_id, twitter_id, youtube_url, website } = props;
   return (
     <Wrapper>
-      {props.facebook_id && (
-        <IconWrap href="#" target="_blank" rel="noopener">
+      {facebook_id && (
+        <IconWrap
+          href={`https://facebook.com/${facebook_id}`}
+          rel="noopener"
+          title={`Follow ${BIO.firstlast} on Facebook`}
+        >
           <FaFacebookF />
-        </IconWrap> 
+        </IconWrap>
       )}
-      {props.twitter_id && (
-        <IconWrap href="#" target="_blank" rel="noopener">
+      {twitter_id && (
+        <IconWrap
+          href={`https://twitter.com/${twitter_id}`}
+          rel="noopener"
+          title={`Follow ${BIO.firstlast} on Twitter`}
+        >
           <FaTwitter />
         </IconWrap>
       )}
-      {props.youtube_url && (
-        <IconWrap href="#" target="_blank" rel="noopener">
+      {youtube_url && (
+        <IconWrap
+          href={youtube_url}
+          rel="noopener"
+          title={`Subscribe to ${BIO.firstlast} on on YouTube`}
+        >
           <FaYoutube />
         </IconWrap>
       )}
-      {props.website && (
-        <IconWrap href="#" target="_blank" rel="noopener">
+      {website && (
+        <IconWrap
+          href={website}
+          rel="noopener"
+          title={`Visit the website of ${BIO.firstlast}`}
+        >
           <FaGlobe />
         </IconWrap>
       )}

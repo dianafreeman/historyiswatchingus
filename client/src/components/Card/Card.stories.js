@@ -1,28 +1,17 @@
 import React from 'react';
-import { CardWrapper, CardTop, CardBottom } from './index';
+import Card from '.';
 
-const CardDecorator = storyFn => <div style={{textAlign: 'center'}}>{storyFn()}</div>;
+// const CardDecorator = storyFn => <div style={{width: '100%', display: 'block'}}>{storyFn}</div>;
 
 export default {
   title: 'Card',
-  decorators: [CardDecorator],
-  includeStories: ['onMount', 'onDestroy'],
+  // decorators: [CardDecorator],
 };
 
 export const onMount = () => (
-  <CardWrapper>
-    <CardTop>Children</CardTop>
-    <CardBottom>
-      <h4>Label</h4>
-    </CardBottom>
-  </CardWrapper>
+  <Card
+    cardTitle={`This is a card title`}
+    footerText={`this is a card footer`}
+  />
 );
-
-export const onDestroy = () => (
-  <CardWrapper>
-    <CardTop>Children</CardTop>
-    <CardBottom>
-      <h4>Label</h4>
-    </CardBottom>
-  </CardWrapper>
-);
+ 

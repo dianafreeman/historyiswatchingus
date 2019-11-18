@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-import Print from '../server/util/Printer';
+import Print from './Print';
 
 
 describe('Printer Methods ', () => {

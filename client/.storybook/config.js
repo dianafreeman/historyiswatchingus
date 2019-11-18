@@ -1,3 +1,7 @@
+import '../src/css/normalize.css'
+import '../src/css/bootstrap.css'
+
+
 import { configure, setAddon, addDecorator } from '@storybook/react';
 
 

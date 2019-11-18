@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@svgr/core": "^4.3.3",
     "chart.js": "^2.9.2",
     "mobx": "^5.14.2",
     "mobx-react": "^6.1.4",
