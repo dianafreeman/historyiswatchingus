@@ -5,9 +5,14 @@ import { colors } from '../../tailwind.config'
 
 
 const NavWrapper = styled.nav`
-  ${tw`w-full flex relative font-sans py-5`}
-  background-color: ${props => props.isActive ? colors['brand-deep-red'] : colors['brand-medium-gray']}
-  color: ${props => props.isActive ? colors['brand-white'] : colors['brand-light-gray']}
+  ${tw`w-screen relative font-sans py-5`}
+  display: inline-flex;
+  width: 100vw;
+  top: 0;
+  height: auto;
+  z-index: 1;
+  background-color: ${props => props.isActive ? colors['brand-deep-red'] : colors['brand-light-gray']}
+  color: ${props => props.isActive ? colors['brand-white'] : colors['brand-deep-red']}
 `;
 
 const NavBrand = styled.div`

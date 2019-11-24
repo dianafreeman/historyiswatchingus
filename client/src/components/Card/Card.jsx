@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ShakeWrapper from '../ShakeWrapper';
 import propTypes from 'prop-types';
-// import ExpandingCard from './ExpandingCard'
 
 import {
   CardContent,

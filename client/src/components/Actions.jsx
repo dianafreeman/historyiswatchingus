@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ActionCard from './Card/ActionCard';
 import tw from 'tailwind.macro';
-import SpringWrapper from './SpringWrapper';
 import { colors } from '../tailwind.config';
 import { FaUsers } from 'react-icons/fa';
 import { p } from './Text';

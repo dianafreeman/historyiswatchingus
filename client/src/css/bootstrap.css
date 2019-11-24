@@ -50,6 +50,10 @@
     -webkit-tap-highlight-color: transparent;
   }
   
+  #root {
+    width: inherit;
+    height: inherit;
+  }
   @-ms-viewport {
     width: device-width;
   }
