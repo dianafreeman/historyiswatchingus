@@ -1,32 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
+import liberty from '../../images/1x/liberty.png'
 
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import Navbar from './components/Navbar';
-import Masthead from './components/Masthead';
-import Actions from './components/Actions';
-import StateSelect, { ActionButton } from './components/StateSelect';
-import { colors } from './tailwind.config';
+class Page extends Component {
+  constructor(props) {
+    super(props);
 
-const AppWrapper = styled.div`
-  width: 100vw;
-  z-index: 0;
-  background-image: linear-gradient(#ffffff, #e8e8e8);
-`;
+    this.state = {};
+  }
 
-const PageSection = styled(ParallaxLayer)``;
-
-const Content = styled.div`
-  
-`;
-class App extends React.Component {
   render() {
-    const url = (name, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
-
     return (
-      <AppWrapper>
-        {/* <Navbar /> */}
-        <Parallax ref={ref => (this.parallax = ref)} pages={3}>
+      <Parallax ref={ref => (this.parallax = ref)} pages={3}>
         <ParallaxLayer
           offset={1}
           speed={1}
@@ -173,8 +157,8 @@ class App extends React.Component {
           <img src={url('clients-main')} style={{ width: '40%' }} />
         </ParallaxLayer>
       </Parallax>
-      </AppWrapper>
     );
   }
 }
-export default App;
+
+export default Page;

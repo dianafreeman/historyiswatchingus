@@ -17,49 +17,62 @@ Tailwind - The Utility-First CSS Framework
 | "secondary", or even a numeric scale like "100" and "200", go for it.
 |
 */
-
-let colors = {
-  //Brand Colors
-
-  'brand-success': '#65BA62',
-  'brand-light-gray': '#E1E1E2',
-  'brand-dark': '#18164E',
-  'brand-medium-gray': '#0707070',
-  'brand-red': '#CD5E4F',
-  'brand-deep-red': '#8D0F00',
-  'brand-orange': '#C8845E',
-  'brand-blue': '#67AAD2',
-  'brand-white': '#F8FAF9',
-
-  // Theme Colors
+const flat_ui = {
   turquoise: '#1ABC9C',
-  'turquoise-dark': '#16A085',
+  'green-sea': '#16A085',
+  emerald: '#2ECC71',
+  nephritis: '#27AE60',
+  'peter-river': '#3498DB',
+  'belize-hole': '#2980B9',
+  amethyst: '#9B59B6',
+  wisteria: '#8E44AD',
+  'wet-asphalt': '#34495E',
+  'midnight-blue': '#2C3E50',
+  'sun-flower': '#F1C40F',
+  orange: '#F39C12',
+  carrot: '#E67E22',
+  pumpkin: '#D35400',
+  alizarin: '#E74C3C',
+  pomegranate: '#C0392B',
+  clouds: '#ECF0F1',
+  silver: '#BDC3C7',
+  concrete: '#95A5A6',
+  asbestos: '#7F8C8D',
+};
 
-  green: '#2ECC71',
-  'green-dark': '#27AE60',
+const flat_colors = {
+  sky: '#b0e4ea',
+  turquoise: flat_ui.turquoise,
+  turquoise_dark: flat_ui['green-sea'],
+  green: flat_ui['emerald'],
+  'green-dark': flat_ui['nephritis'],
+  blue: flat_ui['peter-river'],
+  'blue-dark': flat_ui['belize-hole'],
+  purple: flat_ui['amethyst'],
+  'purple-dark': flat_ui['wisteria'],
+  navy: flat_ui['wet-asphalt'],
+  'navy-dark': flat_ui['midnight-blue'],
+  yellow: flat_ui['sun-flower'],
+  'yellow-dark': flat_ui['orange'],
+  orange: flat_ui['carrot'],
+  'orange-dark': flat_ui['pumpkin'],
+  red: flat_ui['alizarin'],
+  'red-dark': flat_ui['pomegranate'],
+  lightest: flat_ui['clouds'],
+  light: flat_ui['silver'],
+  gray: flat_ui['concrete'],
+  'grey-dark': flat_ui['asbestos'],
+};
+export const screens ={
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+}
 
-  blue: '#3498DB',
-  'blue-dark': '#2980B9',
-
-
-  purple: '#9B59B6',
-  'purple-dark': '#8E44AD',
-
-  'deep-blue': '#34495E',
-  'deep-midnight': '#2C3E50',
-
-  yellow: '#F1C40F',
-  'yellow-dark': '#F39C12',
-
-  orange: '#E67E22',
-  'orange-dark': '#D35400',
-
-  red: '#E74C3C',
-  'red-dark': '#C0392B',
-
-  //End Theme Colors
+export const colors = {
+  ...flat_colors,
   transparent: 'transparent',
-
   black: '#22292f',
   'grey-darkest': '#7F8C8D',
   'grey-darker': '#95A5A6',
@@ -71,7 +84,7 @@ let colors = {
   white: '#ffffff',
 };
 
-module.exports = {
+export default {
   /*
   |-----------------------------------------------------------------------------
   | Colors                                  https://tailwindcss.com/docs/colors
@@ -106,12 +119,7 @@ module.exports = {
   |
   */
 
-  screens: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-  },
+  screens: screens,
 
   /*
   |-----------------------------------------------------------------------------
