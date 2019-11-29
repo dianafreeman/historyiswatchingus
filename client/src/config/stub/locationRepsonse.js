@@ -1,4 +1,4 @@
-const RESPONSE = {
+const location_response = {
   state: 'CA',
   timestamp: '2019-11-06T00:56:52.919Z',
   reps: [
@@ -557,4 +557,4 @@ const RESPONSE = {
 };
 
 
-export default RESPONSE
+export default location_response
