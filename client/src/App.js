@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import liberty from './images/1x/Liberty.png'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Navbar from './components/Navbar';
 import Masthead from './components/Masthead';
@@ -43,8 +43,7 @@ class App extends React.Component {
           speed={0}
           factor={3}
           style={{
-            backgroundImage: url('stars', true),
-            backgroundSize: 'cover',
+            backgroundColor: colors.sky,
           }}
         />
 
@@ -144,7 +143,7 @@ class App extends React.Component {
             justifyContent: 'center',
           }}
         >
-          <img src={url('server')} style={{ width: '20%' }} />
+          <img src={liberty} style={{ width: '20%' }} />
         </ParallaxLayer>
 
         <ParallaxLayer

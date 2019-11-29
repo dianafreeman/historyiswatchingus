@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import liberty from '../../images/1x/liberty.png'
+import { colors } from '../../tailwind.config'
 
 class Page extends Component {
   constructor(props) {
@@ -14,12 +14,12 @@ class Page extends Component {
         <ParallaxLayer
           offset={1}
           speed={1}
-          style={{ backgroundColor: '#805E73' }}
+          style={{ backgroundColor: colors.sky }}
         />
         <ParallaxLayer
           offset={2}
           speed={1}
-          style={{ backgroundColor: '#87BCDE' }}
+          style={{ backgroundColor: colors.black }}
         />
 
         <ParallaxLayer
@@ -27,8 +27,9 @@ class Page extends Component {
           speed={0}
           factor={3}
           style={{
-            backgroundImage: url('stars', true),
-            backgroundSize: 'cover',
+            backgroundColor: 'red',
+            // backgroundImage: url('stars', true),
+            // backgroundSize: 'cover',
           }}
         />
 
@@ -126,6 +127,7 @@ class Page extends Component {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: 'red',
           }}
         >
           <img src={url('server')} style={{ width: '20%' }} />
