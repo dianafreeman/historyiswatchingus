@@ -1,5 +1,5 @@
 module.exports = {
     tailwind: {
-      config: './src/tailwind.config.js'
+      config: './src/config/tailwind'
     }
   }

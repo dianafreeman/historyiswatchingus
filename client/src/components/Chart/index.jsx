@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import sectorData from '../../stub/sectorData';
-import { colors } from '../../tailwind.config';
+import colors from '../../config/tailwind/vars/colors';
 
 class Chart extends Component {
   constructor(props) {

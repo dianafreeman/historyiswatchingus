@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ActionCard from './Card/ActionCard';
 import tw from 'tailwind.macro';
-import { colors } from '../tailwind.config';
+import colors from '../config/tailwind/vars/colors';
 import { FaUsers } from 'react-icons/fa';
 import { p } from './Text';
 

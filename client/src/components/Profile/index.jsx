@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import Card from '../Card';
+import { Card } from '../Card';
 import { Subtitle } from '../Text';
 import SocialBar from '../SocialBar';
-import { colors } from '../../tailwind.config';
+import { colors } from '../../config/tailwind/vars';
 
 const PartyIndicator = styled.h4`
   ${tw`rounded-full px-2 py-1 ml-4 font-bold border-1 border-solid lg:text-2xl`}
@@ -27,18 +27,18 @@ const Profile = props => {
   const { BIO } = props;
   return (
     <Card
-      cardTop={
+      cardTop={ () => 
         <>
           <Subtitle style={tw` m-0`}>{BIO.firstlast}</Subtitle>
           <PartyIndicator party={BIO.party}>{BIO.party}</PartyIndicator>
         </>
       }
-      cardBody={
+      cardBody={ () => 
         <ProfilePhoto
           src={`https://theunitedstates.io/images/congress/225x275/${BIO.bioguide_id}.jpg`}
         />
       }
-      cardBottom={
+      cardBottom={ () => 
         <SocialBar
           facebook_id={BIO.facebook_id}
           twitter_id={BIO.twitter_id}

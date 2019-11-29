@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { FaFacebookF, FaTwitter, FaYoutube, FaGlobe } from 'react-icons/fa';
-import { colors } from '../../tailwind.config';
+import colors from '../../config/tailwind/vars/colors';
 import { BIO } from '../../stub/repBio';
 
 const Wrapper = styled.div`

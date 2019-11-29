@@ -1,0 +1,16 @@
+{   
+  "templatesDirPath": "./components/__templates__",
+  "path": "./src/components",
+  "jsExtension": "jsx",
+  "cssExtension": false,
+  "includeTests": true,
+  "includeStories": true,
+  "indexFile": true,
+  "connected": false,
+  "componentMethods": [],
+  "fileNames": {
+    "testFileName": "myTest",
+    "componentFileName": "template",
+    "styleFileName": "style"
+  }
+}

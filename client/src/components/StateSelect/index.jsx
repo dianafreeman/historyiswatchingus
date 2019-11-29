@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import Select from 'react-select';
 import { US_STATES } from '../../constants';
-import { colors, screens } from '../../tailwind.config';
-import CompassIcon from '../../icons/compass.svg';
-import CompassGrayIcon from '../../icons/compass_gray.svg';
+import { colors, screens } from '../../config/tailwind/vars';
+// import CompassIcon from '../../icons/compass.svg';
+// import CompassGrayIcon from '../../icons/compass_gray.svg';
 
 const selectStyles = {
   option: (provided, state) => ({
@@ -116,13 +116,6 @@ class StateSelect extends Component {
     this.props.store.setLocation(location);
     this.setState({ showSelect: false });
 
-    try {
-      const req = await fetch(`reps/${location.value}`);
-      const response = await req.json();
-      this.props.store.setReps(response.reps);
-    } catch (err) {
-      console.log(`ERROR: ${err}`);
-    }
   };
   render() {
     return (
@@ -134,17 +127,16 @@ class StateSelect extends Component {
           onClick={this.onClick}
         >
           <ButtonIcon
-            src={this.props.store.location ? CompassIcon : CompassGrayIcon}
+            src={`/assets/icons/compass${!!this.props.store.location && '_dark'}`}
             style={{ width: '3em' }}
           />
-
           <SelectWrapper>
             {this.state.showSelect ? (
               <Select
                 {...this.props.selectProps}
                 styles={selectStyles}
                 ref={this.selectElRef}
-                placeholder={<LocationText>Choose a state</LocationText>}
+                placeholder={()=><LocationText>Choose a state</LocationText>}
                 options={stateOptions}
                 onChange={this.onChange}
                 defaultValue={this.props.store.location}

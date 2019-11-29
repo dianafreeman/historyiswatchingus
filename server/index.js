@@ -1,7 +1,14 @@
 import express from 'express';
 import RepRoutes from './routes/reps';
+import path from 'path';
 
-let app = express();
+const app = express();
+
+app.use(express.static(path.resolve('../', 'client/public/')));
+
+app.get('/', function(req, res) {
+  res.sendFile(path.resolve('../','client/public/index.html'));
+});
 
 app.use('/reps/:state', RepRoutes.get);
 

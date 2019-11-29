@@ -1,6 +1,6 @@
 import React from 'react';
-import {BIO} from '../../stub/repBio';
-import {default as Profile} from './index';
+import * as BIO from '../../stub/repBio';
+import Profile from './index';
 
 export default { title: 'Profile Card' };
 

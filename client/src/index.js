@@ -4,8 +4,7 @@ import App from './App';
 import Store from './store'
 import 'typeface-open-sans'
 import 'typeface-prata'
-import './css/normalize.css'
-import './css/bootstrap.css'
+
 
 import * as serviceWorker from './serviceWorker';
 

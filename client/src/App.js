@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import liberty from './images/1x/Liberty.png'
+// import liberty from './images/1x/iberty.png'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Navbar from './components/Navbar';
 import Masthead from './components/Masthead';
 import Actions from './components/Actions';
 import StateSelect, { ActionButton } from './components/StateSelect';
-import { colors } from './tailwind.config';
+import { colors } from './config/tailwind/vars';
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -143,7 +143,7 @@ class App extends React.Component {
             justifyContent: 'center',
           }}
         >
-          <img src={liberty} style={{ width: '20%' }} />
+          <img src={`${process.env.PUBLIC_URL}/assets/`} style={{ width: '20%' }} />
         </ParallaxLayer>
 
         <ParallaxLayer

@@ -47,6 +47,18 @@ class Store {
         : { ...cause }
     );
   }
+  
+  getRepsByState = async (state) => {
+
+    try {
+      const req = await fetch(`reps/${state.code}`);
+      const response = await req.json();
+      this.setReps(response.reps);
+    } catch (err) {
+      console.log(`ERROR: ${err}`);
+    }
+  }
+
 }
 
 decorate(Store, {
