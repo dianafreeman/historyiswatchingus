@@ -44,7 +44,7 @@ export default {
       'Liberation Serif',
       'Georgia',
       'serif',
-      'Prata',
+      'Open Sans Condensed',
     ],
     mono: [
       'Menlo',

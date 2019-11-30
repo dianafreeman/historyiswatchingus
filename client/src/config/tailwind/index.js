@@ -2,11 +2,11 @@ import colors from './vars/colors';
 import screens from './vars/screens';
 import textSizes from './vars/textSizes';
 import fontWeights from './vars/fontWeights';
-import borders from './vars/borderWidths';
+import borderWidths from './vars/borderWidths';
 import leading from './vars/leading';
 import tracking from './vars/tracking'
 import backgroundSize from './vars/backgroundSize'
-import fonts from 'fonts';
+import fonts from './vars/fonts';
 
 export default {
     colors,
@@ -17,6 +17,7 @@ export default {
     leading,
     tracking,
     backgroundSize,
+    borderWidths,
     /*
     |-----------------------------------------------------------------------------
     | Text colors                         https://tailwindcss.com/docs/text-color

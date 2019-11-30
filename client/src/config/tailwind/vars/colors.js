@@ -1,5 +1,6 @@
 
 import flat_colors from './flat_colors';
+import brand from './brand';
     /*
     |-----------------------------------------------------------------------------
     | Colors                                  https://tailwindcss.com/docs/colors
@@ -12,7 +13,9 @@ import flat_colors from './flat_colors';
     | .error { color: config('colors.red') }
     |
     */
-const colors = {
+
+export default {
+  ...brand,
   ...flat_colors,
   transparent: 'transparent',
   black: '#22292f',
@@ -24,6 +27,4 @@ const colors = {
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#ECF0F1',
   white: '#ffffff',
-};
-
-export default colors;
+};;
