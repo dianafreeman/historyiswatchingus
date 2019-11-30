@@ -1,0 +1,63 @@
+* { 
+  font-family: sans-serif;
+}
+
+.App {
+    text-align: center;
+    background-color: #282c34;
+    height: 100vh;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+  }
+  
+  .App-header {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #09d3ac;
+  }
+  
+  .App-Section {
+    display: block;
+    text-align: center;
+  }
+  
+  button{
+    padding: 1rem 2rem ;
+    margin: 1em;
+    outline: none;
+    font-size: 20px;
+    border: 2px solid white;
+  }
+  
+  .get-btn {
+    background-color: turquoise;
+  }
+  
+  .post-btn {
+    background-color: green;
+  }
+  
+  .put-btn {
+    background-color: darkviolet;
+  }
+  
+  code {
+    background-color: lightgray;
+    display:block;  
+    padding: 0.25em;
+    margin: 0.25em;
+  }
+  .delete-btn {
+    background-color: orangered;
+  }
+  
