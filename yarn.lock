@@ -5559,9 +5559,9 @@ typeface-open-sans@0.0.75:
   resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
   integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
 
-typeface-prata@0.0.72:
+typeface-Open Sans Condensed@0.0.72:
   version "0.0.72"
-  resolved "https://registry.yarnpkg.com/typeface-prata/-/typeface-prata-0.0.72.tgz#644785665231ca604253201d5be466e5dfcb8420"
+  resolved "https://registry.yarnpkg.com/typeface-Open Sans Condensed/-/typeface-Open Sans Condensed-0.0.72.tgz#644785665231ca604253201d5be466e5dfcb8420"
   integrity sha512-yZAPOaZ/7pXzqolAuRNqKjaVum02IwQdLZf58Xr6oRZFsk27Uqigyf/fN4BLoUwltN0lxKm2vaKO1VjSj2/NIw==
 
 undefsafe@^2.0.2:

@@ -8,57 +8,57 @@ import { colors, screens } from '../../config/tailwind/vars';
 // import CompassIcon from '../../icons/compass.svg';
 // import CompassGrayIcon from '../../icons/compass_gray.svg';
 
-const selectStyles = {
-  option: (provided, state) => ({
-    // ...provided,
-    backgroundColor: state.showSelected
-      ? colors['brand-dark-red']
-      : colors['brand-medium-gray'],
-  }),
-  container: (provided, state) => ({
-    ...provided,
-    width: '100%',
-  }),
-  menu: (provided, state) => ({
-    // ...provided,
-    fontSize: 'inherit',
-    lineHeight: '1.5em',
-    color: state.isSelected && colors['brand-dark-red'],
-  }),
-  control: (provided, state) => ({
-    display: 'flex',
-    color: colors['white'],
-    backgroundColor: 'transparent',
-    color: colors['brand-dark-red'],
-  }),
-  placeholder: (provided, state) => ({
-    color: colors['brand-dark-red'],
-    fontSize: 'inherit',
-  }),
-  singleValue: (provided, state) => ({
-    fontFamily: 'Prata',
-    width: '100%',
-    color: colors['brand-dark-red'],
-  }),
-  indicatorsContainer: (provided, state) => ({
-    ...provided,
-    color: state.showSelect
-      ? colors['brand-dark-red']
-      : colors['brand-dark-gray'],
-  }),
-  indicator: (provided, state) => ({
-    ...provided,
-    display: 'inline-flex',
-    color: state.showSelect ? colors['brand-dark-red'] : colors['black'],
-  }),
-  input: (provided, state) => ({
-    ...provided,
-    display:'none',
-  }),
-};
+// const selectStyles = {
+//   option: (provided, state) => ({
+//     // ...provided,
+//     backgroundColor: state.showSelected
+//       ? colors['brand-dark-red']
+//       : colors['brand-medium-gray'],
+//   }),
+//   container: (provided, state) => ({
+//     ...provided,
+//     width: '100%',
+//   }),
+//   menu: (provided, state) => ({
+//     // ...provided,
+//     fontSize: 'inherit',
+//     lineHeight: '1.5em',
+//     color: state.isSelected && colors['brand-dark-red'],
+//   }),
+//   control: (provided, state) => ({
+//     display: 'flex',
+//     color: colors['white'],
+//     backgroundColor: 'transparent',
+//     color: colors['brand-dark-red'],
+//   }),
+//   placeholder: (provided, state) => ({
+//     color: colors['brand-dark-red'],
+//     fontSize: 'inherit',
+//   }),
+//   singleValue: (provided, state) => ({
+//     fontFamily: 'Open Sans Condensed',
+//     width: '100%',
+//     color: colors['brand-dark-red'],
+//   }),
+//   indicatorsContainer: (provided, state) => ({
+//     ...provided,
+//     color: state.showSelect
+//       ? colors['brand-dark-red']
+//       : colors['brand-dark-gray'],
+//   }),
+//   indicator: (provided, state) => ({
+//     ...provided,
+//     display: 'inline-flex',
+//     color: state.showSelect ? colors['brand-dark-red'] : colors['black'],
+//   }),
+//   input: (provided, state) => ({
+//     ...provided,
+//     display:'none',
+//   }),
+// };
 export const ActionButton = styled.button`
   ${tw`py-1 w-2/3 rounded-lg bg-brand-deep-red border-brand-deep-red border-4 text-brand-white`}
-  font-family: "Prata" !important;
+  font-family: "Open Sans Condensed" !important;
   font-weight: 400;
   text-align: left;
   font-size: 1.5em;
@@ -127,14 +127,13 @@ class StateSelect extends Component {
           onClick={this.onClick}
         >
           <ButtonIcon
-            src={`/assets/icons/compass${!!this.props.store.location && '_dark'}`}
+            src={`/assets/graphics/${this.props.store.location ? 'compass' : 'compass_gray'}.svg`}
             style={{ width: '3em' }}
           />
           <SelectWrapper>
             {this.state.showSelect ? (
               <Select
                 {...this.props.selectProps}
-                styles={selectStyles}
                 ref={this.selectElRef}
                 placeholder={()=><LocationText>Choose a state</LocationText>}
                 options={stateOptions}

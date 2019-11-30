@@ -10,6 +10,11 @@ import {
 } from './styles';
 
 class Card extends Component {
+  static propTypes = {}
+  static defaultProps = {
+    cardTop: propTypes.element,
+    cardBody: propTypes.element,
+  }
 
   render() {
     return (
@@ -28,12 +33,5 @@ class Card extends Component {
     );
   }
 }
-
-Card.propTypes = {
-  cardTop: propTypes.element,
-  cardBody: propTypes.element,
-};
-
-Card.defaultProps = {};
 
 export default Card;
