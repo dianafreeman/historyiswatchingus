@@ -9,14 +9,15 @@ import { StateOptions } from './Option';
 
 const StateSelect = ({store, selectProps}) => {
   return (
-    <>
+    <div>
       <ButtonIcon
+      wrapperStyles={{float: 'left'}}
         src={`/assets/graphics/${
           store.location ? 'compass' : 'compass_gray'
         }.svg`}
       />
-      <Select options={StateOptions} placeholder={'Choose a state'} {...selectProps}/>
-    </>
+      <Select hasSibling={true} options={StateOptions} placeholder={'Choose a state'} {...selectProps}/>
+    </div>
   );
 };
 

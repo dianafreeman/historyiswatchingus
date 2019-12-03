@@ -7,6 +7,10 @@ position: relative;
 width: 100%;
 height: inherit;
 border-radius: inherit;
+${props => props.hasSibling && `
+border-top-left-radius: 0px !important;
+border-bottom-left-radius: 0px !important;`
+}
 background-color: ${colors.lightest} !important;
 &::before{
     content: '';

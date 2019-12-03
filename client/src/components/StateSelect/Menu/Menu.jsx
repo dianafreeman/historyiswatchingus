@@ -5,7 +5,6 @@ import { colors } from '../../../config/tailwind/vars';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-
 height: 280px;
 width: 100%;
 padding-left: 2em;

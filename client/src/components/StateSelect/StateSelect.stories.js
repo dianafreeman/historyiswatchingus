@@ -14,7 +14,7 @@ export const onOpen = () => (
   <StateSelect
     onClick={action('I should show a location selection')}
     store={store}
-    selectProps={{menuIsOpen: true}}
+    // selectProps={{menuIsOpen: true}}
   />
 );
 export const onSelect = () => <StateSelect store={store}  />;
