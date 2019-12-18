@@ -1,6 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import { COMPONENT_NAME } from ".";
+import { COMPONENT_NAME } from "../DianaBookES7";
 
 export const byDefault = () => <COMPONENT_NAME onClick={action('You Clicked!')}> A Default COMPONENT_NAME </COMPONENT_NAME>;
 

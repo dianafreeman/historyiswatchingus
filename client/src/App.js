@@ -1,179 +1,100 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-// import liberty from './images/1x/iberty.png'
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import Navbar from './components/Navbar';
-import Masthead from './components/Masthead';
-import Actions from './components/Actions';
-import StateSelect, { ActionButton } from './components/StateSelect';
+import { useSpring, animated } from 'react-spring';
+import StateSelect from './components/StateSelect';
+import Store from './store';
 import { colors } from './config/tailwind/vars';
 
 const AppWrapper = styled.div`
-  width: 100vw;
-  z-index: 0;
-  background-image: linear-gradient(#ffffff, #e8e8e8);
+  height: 100vh;
 `;
 
-const PageSection = styled(ParallaxLayer)``;
-
-const Content = styled.div`
-  
+const FadeTextWrapper = styled(animated.div)`
+  position: relative;
+  width: inherit;
+  color: #5a5a5a;
 `;
-class App extends React.Component {
-  render() {
-    const url = (name, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
 
-    return (
-      <AppWrapper>
-        {/* <Navbar /> */}
-        <Parallax ref={ref => (this.parallax = ref)} pages={3}>
-        <ParallaxLayer
-          offset={1}
-          speed={1}
-          style={{ backgroundColor: '#805E73' }}
-        />
-        <ParallaxLayer
-          offset={2}
-          speed={1}
-          style={{ backgroundColor: '#87BCDE' }}
-        />
+const TEXT = [
+  {
+    order: 0,
+    string: `Its 1787. The close of the Constitutional Convention. `,
+    transform: false,
+  },
+  {
+    order: 1,
+    string: `As final deliberations begin, a woman in attendance asks Dr. Benjamin Franklin`,
+    transform: false,
+  },
+  {
+    order: 2,
+    string: `“Well doctor, what have we got?`,
+    transform: {
+      color: 'white',
+      size: 1.5,
+    },
+  },
+  {
+    order: 3,
+    string: `A republic, or a monarchy?”`,
+    transform: {
+      color: 'white',
+      size: 1.5,
+    },
+  },
+  {
+    order: 4,
+    string: `“A republic”, replied Dr. Franklin.`,
+    transform: {
+      size: 1.25,
+    },
+  },
+  {
+    order: 5,
+    string: `“if you can keep it.”`,
+    transform: {
+      color: 'white',
+      size: 1.5,
+    },
+  },
+];
 
-        <ParallaxLayer
-          offset={0}
-          speed={0}
-          factor={3}
-          style={{
-            backgroundColor: colors.sky,
-          }}
-        />
+const FadeInText = ({ item }) => {
+  const props = useSpring({
+    opacity: 1,
+    color:
+      item.transform && item.transform.color ? item.transform.color : 'gray',
+    fontSize:
+      item.transform && item.transform.size
+        ? `${item.transform.size}em`
+        : 'inherit',
+    from: {
+      opacity: 0,
+      fontSize: '1em',
+    },
+  });
+  return (
+    <FadeTextWrapper
+      key={`item-${item.order}`}
+      style={{ position: 'relative', ...props }}
+    >
+      <h1>{item.string}</h1>
+    </FadeTextWrapper>
+  );
+};
 
-        <ParallaxLayer
-          offset={1.3}
-          speed={-0.3}
-          style={{ pointerEvents: 'none' }}
-        >
-          <img
-            src={url('satellite4')}
-            style={{ width: '15%', marginLeft: '70%' }}
-          />
-        </ParallaxLayer>
+const App = () => {
+  const [index, setIndex] = useState(0);
+  const content = TEXT;
 
-        <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '55%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '10%', marginLeft: '15%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.1 }}>
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '70%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '40%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
-        
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '60%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '25%', marginLeft: '30%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '10%', marginLeft: '80%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '5%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '15%', marginLeft: '75%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={2.5}
-          speed={-0.4}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-          }}
-        >
-          <img src={url('earth')} style={{ width: '60%' }} />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={2}
-          speed={-0.3}
-          style={{
-            backgroundSize: '80%',
-            backgroundPosition: 'center',
-            backgroundImage: url('clients', true),
-          }}
-        />
-
-        <ParallaxLayer
-          offset={0}
-          speed={0.1}
-          onClick={() => this.parallax.scrollTo(1)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <img src={`${process.env.PUBLIC_URL}/assets/`} style={{ width: '20%' }} />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={1}
-          speed={0.1}
-          onClick={() => this.parallax.scrollTo(2)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <img src={url('bash')} style={{ width: '40%' }} />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={2}
-          speed={-0}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onClick={() => this.parallax.scrollTo(0)}
-        >
-          <img src={url('clients-main')} style={{ width: '40%' }} />
-        </ParallaxLayer>
-      </Parallax>
-      </AppWrapper>
-    );
-  }
-}
+  return (
+    <AppWrapper onClick={() => index < content.length && setIndex(index + 1)}>
+      {content
+        .filter((_item, idx) => idx <= index)
+        .map(item => (
+          <FadeInText item={item} />
+        ))}
+    </AppWrapper>
+  );
+};
 export default App;

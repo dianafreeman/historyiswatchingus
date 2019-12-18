@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider should match snapshot 1`] = `
+<img
+  className="sc-bdVaJa kmixRJ"
+  src="./assets/graphics/dividers/divider-cool-left.svg"
+>
+   A Divider Label
+</img>
+`;

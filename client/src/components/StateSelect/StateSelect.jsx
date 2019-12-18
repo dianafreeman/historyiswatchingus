@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+// import { observer } from 'mobx-react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import Select from './Select';
@@ -21,4 +21,4 @@ const StateSelect = ({store, selectProps}) => {
   );
 };
 
-export default observer(StateSelect);
+export default StateSelect;

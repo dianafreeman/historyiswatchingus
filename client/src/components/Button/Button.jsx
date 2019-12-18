@@ -1,21 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
+import { colors } from '../../config/tailwind/vars';
 
 export const Wrapper = styled.button`
-    ${tw`rounded-lg p-3 outline-none`};
-&:hover, &:active, &:focus{
-    
+  ${tw`rounded-lg p-3 font-bold`};
+  outline: none;
+  font-size: 100%;
+  background-color: ${props => colors[props.variant]};
+  border: 2px solid ${props => colors[props.variant]};
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: ${props => colors[`${props.variant}-dark`]};
+  
 }
-    ${tw`bg-gray hover:bg-gray-dark `}
-    text-white border-transparent hover:bo
-    font-size: 100%;
-`
+`;
 
+const Button = ({ variant = 'primary', children, ...rest }) => {
+    return (
+    <Wrapper variant={variant} {...rest}>
+      {children}
+    </Wrapper>
+  );
+};
 
-const Button = () => <Wrapper>Look Ma, a button</Wrapper>
-
-Button.propTypes = {};
+Button.propTypes = {
+  variant: PropTypes.string,
+};
 
 Button.defaultProps = {};
 

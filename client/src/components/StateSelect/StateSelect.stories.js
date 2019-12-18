@@ -2,7 +2,7 @@ import React from 'react';
 import { addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions';
 import { locationResponse } from '../../stub/locationRepsonse';
-import { StateSelect } from './';
+import StateSelect from './';
 
 
 const store = { location: locationResponse };

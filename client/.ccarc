@@ -1,5 +1,5 @@
 {   
   "type": "custom",
-  "templatesDirPath": "./src/components/__templates__",
+  "templatesDirPath": "./src/__templates__",
   "templateName": "DianaBookES7"
 }

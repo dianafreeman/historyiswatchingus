@@ -7,7 +7,7 @@ import leading from './vars/leading';
 import tracking from './vars/tracking'
 import backgroundSize from './vars/backgroundSize'
 import fonts from './vars/fonts';
-
+export { default as GlobalStyle } from './GlobalStyle'
 export default {
     colors,
     screens,

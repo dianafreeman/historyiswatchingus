@@ -3,35 +3,34 @@ import propTypes from 'prop-types';
 
 import {
   CardContent,
-  CardTop,
-  CardBottom,
+  CardTop as CardTopWrapper,
+  CardBottom as CardBottomWrapper,
   CardWrapper,
-  CardBody,
+  CardBody as CardBodyWrapper,
 } from './styles';
 
-class Card extends Component {
-  static propTypes = {}
-  static defaultProps = {
-    cardTop: propTypes.element,
-    cardBody: propTypes.element,
-  }
-
-  render() {
-    return (
-          <CardWrapper
-            style={this.props.wrapperStyles ? this.props.wrapperStyles : {}}
-          >
-            <CardContent>
-              <CardTop>{this.props.cardTop}</CardTop>
-              <CardBody>
-                {this.props.cardBody}
-                {this.props.children}
-              </CardBody>
-              <CardBottom>{this.props.cardBottom}</CardBottom>
-            </CardContent>
-          </CardWrapper>
-    );
-  }
-}
+const Card = ({ CardTop, CardBody, CardBottom, wrapperStyles, children }) => (
+  <CardWrapper style={wrapperStyles || {}}>
+    <CardContent>
+      <CardTopWrapper>
+        {CardTop && <CardTop />}
+        </CardTopWrapper>
+      <CardBodyWrapper>
+       {CardBody && <CardBody />}
+        {children}
+      </CardBodyWrapper>
+      <CardBottomWrapper>
+        {CardBottom && <CardBottom />}
+        </CardBottomWrapper>
+    </CardContent>
+  </CardWrapper>
+);
 
 export default Card;
+
+Card.propTypes = {};
+
+Card.defaultProps = {
+  cardTop: propTypes.element,
+  cardBody: propTypes.element,
+};

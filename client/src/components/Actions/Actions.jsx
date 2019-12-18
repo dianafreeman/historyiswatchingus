@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActionCard from './Card/ActionCard';
+import ActionCard from '../Card/ActionCard';
 import tw from 'tailwind.macro';
-import colors from '../config/tailwind/vars/colors';
+import colors from '../../config/tailwind/vars/colors';
 import { FaUsers } from 'react-icons/fa';
-import { p } from './Text';
+import { p } from '../Text';
 
 const Wrapper = styled.div`
   ${tw`w-full flex flex-wrap`}

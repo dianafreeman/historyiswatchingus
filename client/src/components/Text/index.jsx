@@ -3,22 +3,23 @@ import tw from 'tailwind.macro';
 
 
 export const BigTitle = styled.h1`
-  ${tw`text-brand-dark font-sans font-black`}
-  @media screen and (min-width: 768px){
-    font-size: 2.5em
+  ${tw`text-brand-dark font-heading font-black`};
+  @media screen and (min-width: 798px){
+    font-size: calc(100% + 2vw)
   }
 `;
 
 export const Subtitle = styled.h2`
-  ${tw`text-brand-dark font-sans font-bold`}
-  @media screen and (min-width: 768px){
-    font-size: 2.0em
+  ${tw`text-brand-dark font-subheading font-thin`}
+  @media screen and (min-width: 798px){
+    font-size: calc(100% + 2vw)
   }
+
 `;
 
 export const MiniTitle = styled.h3`
-  ${tw`text-brand-dark font-sans font-thin`}
-  @media screen and (min-width: 768px){
-    font-size: 2.5em
+  ${tw`text-brand-dark font-subheading font-thin`}
+  @media screen and (min-width: 798px){
+    font-size: calc(100% + 2vw)
   }
 `;

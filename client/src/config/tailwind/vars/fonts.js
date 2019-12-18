@@ -54,4 +54,6 @@ export default {
       'Courier New',
       'monospace',
     ],
+    heading: ['Open Sans'],
+    subheading: ['Open Sans Condensed']
 }

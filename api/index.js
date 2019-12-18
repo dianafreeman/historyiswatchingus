@@ -4,7 +4,7 @@ import path from 'path';
 
 const app = express();
 
-app.use(express.static(path.resolve('../', 'client/public/')));
+app.use(express.static(path.resolve('../', 'client/public/assets/')));
 
 app.get('/', function(req, res) {
   res.sendFile(path.resolve('../','client/public/index.html'));

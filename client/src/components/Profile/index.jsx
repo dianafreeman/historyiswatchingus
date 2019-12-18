@@ -22,30 +22,35 @@ const ProfilePhoto = styled.img`
   max-width: 130px;
 `;
 
-
 const Profile = props => {
   const { BIO } = props;
+  const ProfileTop = () => (
+    <>
+      <Subtitle style={tw` m-0`}>{BIO.firstlast}</Subtitle>
+      <PartyIndicator party={BIO.party}>{BIO.party}</PartyIndicator>
+    </>
+  );
+
+  const ProfileBody = () => (
+    <ProfilePhoto
+    src={`https://theunitedstates.io/images/congress/225x275/${BIO.bioguide_id}.jpg`}
+  />
+  )
+  
+  const ProfileBottom = () => ( 
+    <SocialBar
+    facebook_id={BIO.facebook_id}
+    twitter_id={BIO.twitter_id}
+    youtube_url={BIO.youtube_url}
+    website={BIO.website}
+  />
+  )
+
   return (
     <Card
-      cardTop={ () => 
-        <>
-          <Subtitle style={tw` m-0`}>{BIO.firstlast}</Subtitle>
-          <PartyIndicator party={BIO.party}>{BIO.party}</PartyIndicator>
-        </>
-      }
-      cardBody={ () => 
-        <ProfilePhoto
-          src={`https://theunitedstates.io/images/congress/225x275/${BIO.bioguide_id}.jpg`}
-        />
-      }
-      cardBottom={ () => 
-        <SocialBar
-          facebook_id={BIO.facebook_id}
-          twitter_id={BIO.twitter_id}
-          youtube_url={BIO.youtube_url}
-          website={BIO.website}
-        />
-      }
+      CardTop={ProfileTop}
+      CardBody={ProfileBody}
+      CardBottom={ProfileBottom}
     />
   );
 };

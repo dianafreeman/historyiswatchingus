@@ -1,2 +1,3 @@
-export { default as Select } from './Select/'
-export { default as StateSelect } from './StateSelect'
+import StateSelect from './StateSelect'
+
+export default StateSelect

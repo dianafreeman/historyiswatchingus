@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "History Is Watching Us",
   "author": "Diana M. Steakley-Freeman",
-  "main": "server/index.js",
+  "main": "api/index.js",
   "scripts": {
-    "dev": "run-p dev:server dev:client",
-    "dev:client": "npm run start --prefix client",
-    "dev:server": "nodemon --exec npx babel-node server/index.js",
     "build:client": "npm run build --prefix client",
-    "build:server": "npx babel server/index.js --out-file server/dist/index.js",
+    "build:api": "npx babel api/index.js --out-file api/dist/index.js",
     "build:storybook": "npm run build-storybook --prefix client",
-    "test:server": "mocha \"server/**/*.spec.js\" --watch --require @babel/register ",
-    "test:client": "npm run test --prefix client",
+    "dev:client": "npm run start --prefix client",
+    "dev:api": "nodemon -r esm --exec npx babel-node api/index.js",
+    "dev": "run-p dev:api dev:client",
+    "api": "npx babel-node api/index.js",
+    "explore": "run-p nodemon --exec npx babel-node api/explorer/index.js",
     "format:client": "npm run format --prefix client",
+    "prod": "PRODUCTON FLOW NOT SET!",
     "start:storybook": "npm run storybook --prefix client",
-    "prod": "PRODUCTON FLOW NOT SET!"
+    "test:client": "npm run test --prefix client",
+    "test:api": "mocha \"api/**/*.spec.js\" --watch --require @babel/register "
   },
   "repository": {
     "type": "git",
@@ -63,6 +65,6 @@
     "react-dom": "^16.8.6",
     "react-select": "^3.0.8",
     "typeface-open-sans": "0.0.75",
-    "typeface-Open Sans Condensed": "0.0.72"
+    "typeface-open-sans-condensed": "0.0.72"
   }
 }

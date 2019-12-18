@@ -1,15 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import ThemeWrapper from "./ThemeWrapper";
+import Divider from "./Divider";
 
-describe("ThemeWrapper", () => {
+describe("Divider", () => {
   let component, props;
 
   beforeEach(() => {
     props = {};
     component = renderer.create(
-        <ThemeWrapper {...props}> A ThemeWrapper Label</ThemeWrapper>
+        <Divider {...props}> A Divider Label</Divider>
     );
   });
 

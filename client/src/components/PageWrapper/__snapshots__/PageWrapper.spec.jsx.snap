@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageWrapper should match snapshot 1`] = `
+<div
+  className="sc-bwzfXH gezBPS"
+>
+  <div
+    className="sc-htpNat gxqrQm"
+  >
+    <img
+      className="sc-bdVaJa kmixRJ"
+      src="./assets/graphics/dividers/divider-cool-left.svg"
+    />
+    <div
+      className="sc-bxivhb jrpOEw"
+    >
+       A PageWrapper Label
+    </div>
+  </div>
+</div>
+`;

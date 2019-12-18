@@ -14,3 +14,6 @@ COMPONENT_NAME.propTypes = {
     PropTypes.node,
   ]).isRequired
 };
+
+
+export default COMPONENT_NAME

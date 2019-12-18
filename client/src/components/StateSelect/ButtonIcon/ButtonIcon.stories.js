@@ -1,8 +1,9 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import { ButtonIcon } from ".";
+import ButtonIcon from ".";
 
-export const byDefault = () => <ButtonIcon onClick={action('You Clicked!')}> A Default ButtonIcon </ButtonIcon>;
+export const byDefault = () => <ButtonIcon />;
+export const withSource = () => <ButtonIcon src={'./assets/graphics/compass.svg'} onClick={action('You Clicked!')} />;
 
 export default {
   title: "ButtonIcon",

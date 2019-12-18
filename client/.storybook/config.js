@@ -1,8 +1,17 @@
+import React from 'react';
+import { configure, addDecorator } from '@storybook/react';
+import { withA11y } from '@storybook/addon-a11y';
+import PageWrapper from '../src/components/PageWrapper';
+import { withConsole } from '@storybook/addon-console';
 
+const MinThemeDecorator = storyFn => <PageWrapper divider={false}>{storyFn()}</PageWrapper>
 
-import { configure, setAddon, addDecorator } from '@storybook/react';
+addDecorator(withA11y);
+// addDecorator(withConsole);
+addDecorator(MinThemeDecorator);
 
-
-// automatically import all files ending in *.stories.js
-configure(require.context('../src/', true, /\.stories\.js$/), module);
-
+// automatically import all component files ending in *.stories.js
+configure(
+  require.context('../src/components/', true, /\.stories\.js$/),
+  module
+);
