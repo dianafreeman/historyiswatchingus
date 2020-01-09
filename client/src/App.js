@@ -143,7 +143,8 @@ class App extends React.Component {
             justifyContent: 'center',
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/assets/`} style={{ width: '20%' }} />
+          <StateSelect />
+          {/* <img src={`${process.env.PUBLIC_URL}/assets/`} style={{ width: '20%' }} /> */}
         </ParallaxLayer>
 
         <ParallaxLayer
