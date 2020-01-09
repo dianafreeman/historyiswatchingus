@@ -1,42 +1,115 @@
 # History Is Watching Us
 
-For better or worse, money is deeply involved in US politics. 
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-## Getting Started
+##Background
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+> A woman in the crowd asks, "Well Doctor, what have we got? A Republic, or a Monarchy?"
+> "A Republic", Dr. Benjamin Franklin replied. 
+>
+> "If you can keep it." 
+>
+>  -- *Constitutional Convention of 1978* --
 
-### Prerequisites
 
-What things you need to install the software and how to install them
 
+**The Problem:** In 2019, there were more mass shootings than there were days in the year[*](https://www.gunviolencearchive.org/).  Local representation is the _only_ constitutional mechanism by which citizens in a democracy can influence the direction of a nation. Money is deeply involved in US politics. Knowledge is critical to a citizen's decision making at the ballot box. Citizens who care about gun violence should be able to identify how their  local representatives have used their office -- in support, or opposition -- to address gun violence. 
+
+**The Goal:**
+
+[table of contents]
+
+*[TODO: create a separate USERGUIDE.MD]*
+
+##Requirements
+
+To work on this application, you will need *either:*
+
+- a Docker-enabled machine
+
+**or**
+
+- [Node](https://nodejs.org/en/) version 6 or above (app)
+- [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements) (e2e testing)
+
+## Installation
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+```bash
+$ git clone <<this repo>> <<your directory>>
+$ cd <<your directory>>
+$ npm install
 ```
-Give examples
-```
 
-### Installing
+**Using Docker**
+
+[[Add  docker stuff here]]
+
+## Usage
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Run the entire application (client + server)
+
+**Using Docker**
 
 ```
-Give the example
+docker-compose up --build
 ```
 
-And repeat
+**Using Node**
 
 ```
-until finished
+$ npm install
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+
+
+## Testing
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+### Run the Unit Testing Suite
+
+```
+// the thing to do this
+```
+
+
+
+### Run the client test suite
+
+```
+// the thing to do this
+```
+
+
+
+### Run the server test suite
+
+```
+// the thing to do this
+```
+
+
+
+### Run the End-To-End suite
+
+Explain what these tests test and why
+
+```
+//
+// Break down the end to end tests
+//
+//
+```
+
+
+
+### Formatting Tests
 
 Explain what these tests test and why
 
@@ -44,44 +117,43 @@ Explain what these tests test and why
 Give an example
 ```
 
-### And coding style tests
 
-Explain what these tests test and why
 
+## Convenience Tooling
+
+Run the following command from the project directory to see a list of handy make targets and their descriptions.
+
+```bash
+$ make
 ```
-Give an example
-```
 
-## Deployment
+Consult the Makefile for a full list of make targets.
 
-Add additional notes about how to deploy this on a live system
+
 
 ## Built With
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+- Create React App -- Frontend
+- Styled Components -- CSS in JS solution
+- Storybook JS -- UI Component Testing/Library/Explorer
+- ExpressJS -- Backend
+- Cypress.io -- End to End testing
+- Mocha -- Unit Testing (Server Side)
+- Chai -- Assertion Library
+
+
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+[TODO: " [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) code of conduct, and the process for submitting pull requests"]
 
-## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-- **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/PurpleBooth/LICENSE.md) file for details
+[MIT](/LICENSE,txt) © Diana M Steakley Freeman
 
-## Acknowledgments
+## Acknowledgments	
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Open Secrets [LINK]
+- Propublica [LINK]
