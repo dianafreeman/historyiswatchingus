@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../tailwind.config';
 import tw from 'tailwind.macro';
-import ShakeWrapper from '../ShakeWrapper';
 
 export const CardWrapper = styled.div`
 ${tw`relative h-full flex border border-solid border-brand-light-gray rounded-lg w-1/3`}  

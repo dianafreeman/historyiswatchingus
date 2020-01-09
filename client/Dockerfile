@@ -6,13 +6,12 @@ RUN apk update && apk upgrade && apk add --update --no-cache \
 
 WORKDIR /app
 
-
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN yarn install 
+RUN yarn install
 
 # Client Dev
 # ---------------------------
@@ -32,4 +31,4 @@ COPY . .
 
 EXPOSE 9002
 
-CMD ["npm", "run", "storybook"]
+CMD ["yarn", "run", "storybook"]
